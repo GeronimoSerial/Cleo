@@ -8,10 +8,7 @@ import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-da
 import { RelatedProductsDark } from "@/components/related-products-dark";
 import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark";
 
-import {
-  getProductBySlug,
-  getRelatedProducts,
-} from "@/lib/products-api";
+import { getProductBySlug, getRelatedProducts } from "@/lib/products-api";
 
 interface ProductPageProps {
   params: {
@@ -121,7 +118,7 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
               tienda
             </p>
             <Button
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-lg hover:transform hover:scale-105 transition-all duration-300"
               size="lg"
               // onClick={() => {
               //   const message = `¡Hola! Estoy interesado en ${product.name}`;

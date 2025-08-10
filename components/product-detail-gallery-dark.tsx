@@ -1,14 +1,16 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Card } from "@/components/ui/card"
-import { Play } from "lucide-react"
+import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import { Play } from "lucide-react";
 
 interface ProductDetailGalleryDarkProps {
-  productName: string
+  productName: string;
 }
 
-export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDarkProps) {
+export function ProductDetailGalleryDark({
+  productName,
+}: ProductDetailGalleryDarkProps) {
   const detailImages = [
     {
       src: "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
@@ -25,12 +27,14 @@ export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDa
       title: "Detalle del Logo",
       description: "Marca CLEO signature",
     },
-  ]
+  ];
 
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-100 mb-3">Detalles del Producto</h3>
+        <h3 className="text-2xl md:text-3xl font-bold text-gray-100 mb-3">
+          Detalles
+        </h3>
         <p className="text-gray-400">Ve la calidad y artesanía de cerca</p>
         <div className="w-20 h-1 bg-linear-to-r from-transparent via-white to-transparent mx-auto mt-4 opacity-50"></div>
       </div>
@@ -46,7 +50,7 @@ export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDa
                 src={image.src || "/placeholder.svg"}
                 alt={`${productName} - ${image.title}`}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="object-cover overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-gray-500 group"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
               {/* Rock-themed overlay */}
@@ -54,7 +58,9 @@ export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDa
               {/* Guitar pick accent */}
               <div
                 className="absolute top-3 right-3 w-3 h-4 bg-white opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                style={{ clipPath: "polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%)" }}
+                style={{
+                  clipPath: "polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%)",
+                }}
               />
             </div>
             <div className="p-4">
@@ -73,7 +79,9 @@ export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDa
               <div className="w-16 h-16 bg-dark-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-dark-500 transition-colors">
                 <Play className="w-6 h-6 text-gray-300 ml-1" />
               </div>
-              <h4 className="text-lg font-bold text-gray-100 mb-2">Video del Producto</h4>
+              <h4 className="text-lg font-bold text-gray-100 mb-2">
+                Video del Producto
+              </h4>
               <p className="text-sm text-gray-400">Próximamente disponible</p>
             </div>
           </div>
@@ -83,5 +91,5 @@ export function ProductDetailGalleryDark({ productName }: ProductDetailGalleryDa
         </div>
       </Card>
     </div>
-  )
+  );
 }

@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { ProductCarousel } from "./product-carousel";
 import { RockSoundWave } from "./rock-sound-wave";
 import { Button } from "@/components/ui/button";
+import { TextReveal } from "./magicui/text-reveal";
+import { ProductsTextReveal } from "./reveal-products";
 import {
   getAllProducts,
   getNewArrivals,
@@ -96,13 +98,15 @@ export function ProductsHomepage() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
+          <ProductsTextReveal />
+          {/* <TextReveal>Products, where street meets rock</TextReveal> */}
+          {/* <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
             PRODUCTS
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50" />
           </h2>
           <p className="text-gray-400 text-base md:text-lg tracking-wide mb-6">
             WHERE STREET MEETS ROCK
-          </p>
+          </p> */}
 
           {/* Sound Wave Divider */}
           {/* <div className="flex justify-center mb-8 md:mb-12">

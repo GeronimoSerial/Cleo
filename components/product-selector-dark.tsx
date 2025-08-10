@@ -232,7 +232,7 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
       <div className="space-y-3">
         <Button
           onClick={handleWhatsAppPurchase}
-          className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg font-bold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
+          className="w-full bg-gray-700 hover:bg-green-700 text-white py-4 text-lg font-bold rounded-lg flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
           size="lg"
         >
           <MessageCircle className="w-5 h-5" />

@@ -65,7 +65,7 @@ export function SiteHeader() {
             <div className="hidden sm:block">
               <h1 className="text-xl md:text-2xl font-bold text-white">CLEO</h1>
               <p className="text-xs md:text-sm text-gray-400">
-                Streetwear & ROCK
+                STREETWEAR & ROCK
               </p>
             </div>
           </Link>
@@ -88,51 +88,24 @@ export function SiteHeader() {
                   : "text-gray-300"
               }`}
             >
-              Products
+              Productos
             </Link>
             <Link
               href="/#about"
               className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
             >
-              About
+              Nosotros
             </Link>
             <Link
               href="/#contact"
               className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
             >
-              Contact
+              Contacto
             </Link>
           </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center space-x-2 md:space-x-4">
-            {/* Search Button - Desktop */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden md:flex p-2 bg-dark-800 hover:bg-dark-600 border border-dark-600 hover:border-gray-500 transition-all duration-300"
-              aria-label="Search products"
-            >
-              <Search className="w-4 h-4 text-gray-300" />
-            </Button>
-
-            {/* Cart Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2 bg-dark-800 hover:bg-dark-600 border border-dark-600 hover:border-gray-500 transition-all duration-300 relative"
-              aria-label="Shopping cart"
-            >
-              <ShoppingBag className="w-4 h-4 text-gray-300" />
-              {/* Cart count badge */}
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-black text-xs rounded-full flex items-center justify-center font-bold">
-                0
-              </span>
-            </Button>
-
-            {/* Hamburger Menu */}
-            <HamburgerMenu />
-          </div>
+          {/* Hamburger Menu */}
+          <HamburgerMenu />
         </div>
       </div>
 
