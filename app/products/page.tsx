@@ -44,7 +44,7 @@ export default function ProductsPage() {
                 CLEO
               </h1>
               <p className="text-sm md:text-base text-gray-400">
-                STREETSWEAR & ROCK
+                Streetwear & ROCK
               </p>
             </div>
             <div className="w-32"></div>

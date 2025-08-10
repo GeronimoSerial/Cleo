@@ -104,7 +104,7 @@ export function AutoSliderBanner() {
       </div>
 
       {/* Fixed Centered Content */}
-      <div className="absolute inset-0 bg-opacity-10 flex items-center justify-center  z-10 px-4">
+      <div className="absolute inset-0 bg-opacity-10 bg-black/40 flex items-center justify-center z-10 px-4">
         <div className="text-center max-w-4xl w-full">
           {/* Main Brand Text - Properly Centered */}
           <div className="mb-6 md:mb-8 relative">
@@ -113,10 +113,10 @@ export function AutoSliderBanner() {
               <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-0.5 md:h-1 bg-linear-to-r from-transparent via-white to-transparent"></div>
             </h1>
 
-            {/* StreetSwear & Rock - Properly Centered */}
+            {/* Streetwear & Rock - Properly Centered */}
             <div className="relative">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-wider text-gray-100 mb-3 md:mb-4 relative">
-                <span className="relative z-10">STREETSWEAR</span>
+                <span className="relative z-10">STREETWEAR</span>
                 <span className="mx-2 md:mx-4 text-white opacity-75">&</span>
                 <span className="relative z-10 text-gray-200">ROCK</span>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-4 md:h-8 bg-linear-to-r from-transparent via-white to-transparent opacity-10 -skew-x-12"></div>

@@ -1,34 +1,53 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Card } from "@/components/ui/card"
-import { Minus, Plus, MessageCircle, ShoppingCart, Ruler, Package, Truck, Clock } from "lucide-react"
-import type { Product } from "@/lib/products-api"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import {
+  Minus,
+  Plus,
+  MessageCircle,
+  ShoppingCart,
+  Ruler,
+  Package,
+  Truck,
+  Clock,
+} from "lucide-react";
+import type { Product } from "@/lib/products-api";
 
 interface ProductSelectorDarkProps {
-  product: Product
+  product: Product;
 }
 
 export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "M")
-  const [selectedColor, setSelectedColor] = useState(product.colors[0] || "Black")
-  const [quantity, setQuantity] = useState(1)
-  const [showSizeChart, setShowSizeChart] = useState(false)
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0] || "M");
+  const [selectedColor, setSelectedColor] = useState(
+    product.colors[0] || "Black"
+  );
+  const [quantity, setQuantity] = useState(1);
+  const [showSizeChart, setShowSizeChart] = useState(false);
 
   const handleQuantityChange = (change: number) => {
-    setQuantity(Math.max(1, quantity + change))
-  }
+    setQuantity(Math.max(1, quantity + change));
+  };
 
-  const totalPrice = product.price * quantity
-  const savings = product.originalPrice ? (product.originalPrice - product.price) * quantity : 0
+  const totalPrice = product.price * quantity;
+  const savings = product.originalPrice
+    ? (product.originalPrice - product.price) * quantity
+    : 0;
 
   const handleWhatsAppPurchase = () => {
-    const message = `¡Hola! Estoy interesado en ${product.name} - Talla: ${selectedSize}, Color: ${selectedColor}, Cantidad: ${quantity}. Total: $${totalPrice.toFixed(2)}`
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
-  }
+    const message = `¡Hola! Estoy interesado en ${
+      product.name
+    } - Talla: ${selectedSize}, Color: ${selectedColor}, Cantidad: ${quantity}. Total: $${totalPrice.toFixed(
+      2
+    )}`;
+    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <div className="space-y-6">
@@ -39,12 +58,20 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
             {product.name}
           </h1>
           <div className="flex items-center gap-2 flex-wrap">
-            {product.isNew && <Badge className="bg-green-600 text-white text-xs px-3 py-1 font-semibold">NUEVO</Badge>}
+            {product.isNew && (
+              <Badge className="bg-indigo-900 text-white text-xs px-3 py-1 font-semibold">
+                NUEVO
+              </Badge>
+            )}
             {product.isLimited && (
-              <Badge className="bg-red-600 text-white text-xs px-3 py-1 font-semibold">EDICIÓN LIMITADA</Badge>
+              <Badge className="bg-red-600 text-white text-xs px-3 py-1 font-semibold">
+                EDICIÓN LIMITADA
+              </Badge>
             )}
             {product.isBestSeller && (
-              <Badge className="bg-blue-600 text-white text-xs px-3 py-1 font-semibold">MÁS VENDIDO</Badge>
+              <Badge className="bg-indigo-900 text-white text-xs px-3 py-1 font-semibold">
+                MÁS VENDIDO
+              </Badge>
             )}
           </div>
         </div>
@@ -63,7 +90,11 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
           </div>
           {savings > 0 && (
             <p className="text-sm md:text-base text-green-400 font-semibold">
-              Ahorras ${savings.toFixed(2)} ({Math.round((savings / (product.originalPrice! * quantity)) * 100)}% OFF)
+              Ahorras ${savings.toFixed(2)} (
+              {Math.round(
+                (savings / (product.originalPrice! * quantity)) * 100
+              )}
+              % OFF)
             </p>
           )}
           <div className="w-20 h-1 bg-linear-to-r from-white to-transparent opacity-50"></div>
@@ -73,7 +104,9 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
       {/* Color Selection */}
       {product.colors.length > 1 && (
         <div className="space-y-3">
-          <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">Color</h3>
+          <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">
+            Color
+          </h3>
           <div className="flex gap-2 flex-wrap">
             {product.colors.map((color) => (
               <button
@@ -94,8 +127,10 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
 
       {/* Size Selection */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">Talla</h3>
+        {/* <div className="flex items-center justify-between">
+          <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">
+            Talla
+          </h3>
           <button
             onClick={() => setShowSizeChart(!showSizeChart)}
             className="text-sm text-gray-400 hover:text-white underline flex items-center gap-1 transition-colors"
@@ -103,7 +138,7 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
             <Ruler className="w-3 h-3" />
             Guía de Tallas
           </button>
-        </div>
+        </div> */}
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
           {product.sizes.map((size) => (
             <button
@@ -124,7 +159,9 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
         {showSizeChart && (
           <Card className="p-4 bg-dark-800 border-dark-600">
             <div className="space-y-3">
-              <h4 className="font-bold text-sm text-gray-100">Guía de Tallas (cm)</h4>
+              <h4 className="font-bold text-sm text-gray-100">
+                Guía de Tallas (cm)
+              </h4>
               <div className="grid grid-cols-4 gap-2 text-xs">
                 <div className="font-semibold text-gray-200">Talla</div>
                 <div className="font-semibold text-gray-200">Pecho</div>
@@ -154,7 +191,9 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
 
       {/* Quantity Selection */}
       <div className="space-y-3">
-        <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">Cantidad</h3>
+        <h3 className="text-sm font-bold text-gray-100 uppercase tracking-wider">
+          Cantidad
+        </h3>
         <div className="flex items-center gap-4">
           <div className="flex items-center border-2 border-dark-600 rounded-lg bg-dark-800">
             <Button
@@ -166,7 +205,9 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
             >
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="px-4 py-2 font-bold text-lg min-w-12 text-center text-white">{quantity}</span>
+            <span className="px-4 py-2 font-bold text-lg min-w-12 text-center text-white">
+              {quantity}
+            </span>
             <Button
               variant="ghost"
               size="sm"
@@ -178,7 +219,10 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
           </div>
           {quantity > 1 && (
             <div className="text-sm text-gray-400">
-              Total: <span className="font-bold text-white text-lg">${totalPrice.toFixed(2)}</span>
+              Total:{" "}
+              <span className="font-bold text-white text-lg">
+                ${totalPrice.toFixed(2)}
+              </span>
             </div>
           )}
         </div>
@@ -209,27 +253,37 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
         {/* Stock Status */}
         <div className="flex items-center gap-2">
           <Package className="w-4 h-4 text-green-400" />
-          <span className="text-sm font-semibold text-green-400">En Stock - Listo para Enviar</span>
+          <span className="text-sm font-semibold text-green-400">
+            En Stock - Listo para Enviar
+          </span>
         </div>
 
         {/* Shipping Info */}
         <div className="flex items-center gap-2">
           <Truck className="w-4 h-4 text-blue-400" />
-          <span className="text-sm text-gray-300">Envío gratis a nivel nacional • Entrega en 24h</span>
+          <span className="text-sm text-gray-300">
+            Envío gratis a nivel nacional • Entrega en 24h
+          </span>
         </div>
 
         {/* Urgency */}
         <div className="flex items-center gap-2">
           <Clock className="w-4 h-4 text-orange-400" />
-          <span className="text-sm text-orange-400 font-medium">Últimas 3 unidades disponibles</span>
+          <span className="text-sm text-orange-400 font-medium">
+            Últimas 3 unidades disponibles
+          </span>
         </div>
 
         {/* Description */}
         <div className="space-y-3 pt-2">
-          <h4 className="text-sm font-bold text-gray-100 uppercase tracking-wider">Descripción</h4>
-          <p className="text-sm text-gray-300 leading-relaxed">{product.description}</p>
+          <h4 className="text-sm font-bold text-gray-100 uppercase tracking-wider">
+            Descripción
+          </h4>
+          <p className="text-sm text-gray-300 leading-relaxed">
+            {product.description}
+          </p>
         </div>
       </div>
     </div>
-  )
+  );
 }

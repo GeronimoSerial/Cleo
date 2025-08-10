@@ -7,12 +7,9 @@ import { ProductSelectorDark } from "@/components/product-selector-dark";
 import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-dark";
 import { RelatedProductsDark } from "@/components/related-products-dark";
 import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark";
-import { DynamicProductCard } from "@/components/dynamic-product-card";
-import { CategoryHero } from "@/components/category-hero";
+
 import {
   getProductBySlug,
-  getCategoryBySlug,
-  getProductsByCategory,
   getRelatedProducts,
 } from "@/lib/products-api";
 
@@ -64,24 +61,15 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
         <div className="relative z-10 pt-20 md:pt-24 pb-8">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
-              <Link href="/products">
+              <Link href="/">
                 <Button
                   variant="outline"
                   className="flex items-center space-x-2 bg-transparent border-dark-600 hover:border-gray-400"
                 >
                   <ArrowLeft className="w-4 h-4" />
-                  <span>Volver a Productos</span>
+                  <span>Volver</span>
                 </Button>
               </Link>
-              <div className="text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
-                  CLEO
-                </h1>
-                <p className="text-sm md:text-base text-gray-400">
-                  STREETSWEAR & ROCK
-                </p>
-              </div>
-              <div className="w-32"></div>
             </div>
           </div>
         </div>
@@ -153,89 +141,5 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
       </main>
     );
   }
-
-  // Try to find a category
-  const category = await getCategoryBySlug(segment);
-
-  if (category) {
-    // This is a category page - keep existing category page logic
-    const categoryProducts = await getProductsByCategory(segment);
-
-    return (
-      <main className="min-h-screen bg-dark-900 relative">
-        {/* Rock-themed Background Elements */}
-        <div className="absolute inset-0 pointer-events-none opacity-5">
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-full border-t border-white"
-              style={{
-                top: `${10 + i * 9}%`,
-                opacity: 0.3 - i * 0.03,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Header */}
-        <div className="relative z-10 pt-20 md:pt-24 pb-8">
-          <div className="container mx-auto px-4 md:px-6 lg:px-8">
-            <div className="flex items-center justify-between mb-8">
-              <Link href="/products">
-                <Button
-                  variant="outline"
-                  className="flex items-center space-x-2 bg-transparent"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  <span>All Products</span>
-                </Button>
-              </Link>
-              <div className="text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
-                  CLEO
-                </h1>
-                <p className="text-sm md:text-base text-gray-400">
-                  STREETSWEAR & ROCK
-                </p>
-              </div>
-              <div className="w-32"></div>
-            </div>
-
-            {/* Category Hero */}
-            <CategoryHero
-              category={category}
-              productCount={categoryProducts.length}
-            />
-          </div>
-        </div>
-
-        {/* Products Grid */}
-        <div className="relative z-10 pb-12 md:pb-24">
-          <div className="container mx-auto px-4 md:px-6 lg:px-8">
-            {categoryProducts.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-                {categoryProducts.map((product) => (
-                  <DynamicProductCard key={product.id} product={product} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-400 text-lg">
-                  No products found in this category.
-                </p>
-                <Link href="/products">
-                  <Button variant="outline" className="mt-4 bg-transparent">
-                    Browse All Products
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  // Neither product nor category found
   notFound();
 }

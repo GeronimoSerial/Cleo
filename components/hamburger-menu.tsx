@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { X, Home, ShoppingBag, Info, Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { categories } from "@/lib/products-data"
+import { useState, useEffect } from "react";
+import { X, Home, ShoppingBag, Info, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { categories } from "@/lib/products-data";
 
 export function HamburgerMenu() {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   // Close menu when route changes
   useEffect(() => {
-    setIsOpen(false)
-  }, [pathname])
+    setIsOpen(false);
+  }, [pathname]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [isOpen])
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const navigationLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -41,7 +41,7 @@ export function HamburgerMenu() {
       label: category.name,
       icon: ShoppingBag,
     })),
-  ]
+  ];
 
   return (
     <>
@@ -76,7 +76,9 @@ export function HamburgerMenu() {
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-xs z-40 transition-opacity duration-300 lg:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMenu}
       />
@@ -121,7 +123,7 @@ export function HamburgerMenu() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-bold text-white">CLEO</h2>
-              <p className="text-sm text-gray-400">STREETSWEAR & ROCK</p>
+              <p className="text-sm text-gray-400">Streetwear & ROCK</p>
             </div>
             <Button
               onClick={toggleMenu}
@@ -142,15 +144,18 @@ export function HamburgerMenu() {
         <div className="relative z-10 flex-1 overflow-y-auto py-6">
           <div className="px-6 space-y-2">
             {navigationLinks.map((link, index) => {
-              const Icon = link.icon
-              const isActive = pathname === link.href
-              const isCategory = link.href.startsWith("/products/") && link.href !== "/products"
+              const Icon = link.icon;
+              const isActive = pathname === link.href;
+              const isCategory =
+                link.href.startsWith("/products/") && link.href !== "/products";
 
               return (
                 <Link key={link.href} href={link.href}>
                   <div
                     className={`group flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                      isActive ? "bg-white text-black" : "text-gray-300 hover:text-white hover:bg-dark-700"
+                      isActive
+                        ? "bg-white text-black"
+                        : "text-gray-300 hover:text-white hover:bg-dark-700"
                     } ${isCategory ? "ml-4 text-sm" : ""}`}
                     style={{
                       animationDelay: `${index * 0.1}s`,
@@ -160,17 +165,21 @@ export function HamburgerMenu() {
                     <span className="font-medium">{link.label}</span>
 
                     {/* Active indicator */}
-                    {isActive && <div className="ml-auto w-2 h-2 bg-black rounded-full animate-pulse" />}
+                    {isActive && (
+                      <div className="ml-auto w-2 h-2 bg-black rounded-full animate-pulse" />
+                    )}
 
                     {/* Hover effect */}
                     <div
                       className={`absolute left-0 top-0 bottom-0 w-1 bg-white transition-all duration-300 ${
-                        isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"
+                        isActive
+                          ? "opacity-100"
+                          : "opacity-0 group-hover:opacity-50"
                       }`}
                     />
                   </div>
                 </Link>
-              )
+              );
             })}
           </div>
 
@@ -218,5 +227,5 @@ export function HamburgerMenu() {
         </div>
       </nav>
     </>
-  )
+  );
 }

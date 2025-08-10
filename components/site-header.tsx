@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Logo } from "./logo"
-import { HamburgerMenu } from "./hamburger-menu"
-import { Button } from "@/components/ui/button"
-import { ShoppingBag, Search } from "lucide-react"
-import { usePathname } from "next/navigation"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Logo } from "./logo";
+import { HamburgerMenu } from "./hamburger-menu";
+import { Button } from "@/components/ui/button";
+import { ShoppingBag, Search } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function SiteHeader() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Don't show header on home page (it has its own logo positioning)
   if (pathname === "/") {
@@ -27,13 +27,15 @@ export function SiteHeader() {
       <div className="fixed top-4 right-4 z-50">
         <HamburgerMenu />
       </div>
-    )
+    );
   }
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-dark-900/95 backdrop-blur-md border-b border-dark-600" : "bg-transparent"
+        isScrolled
+          ? "bg-dark-900/95 backdrop-blur-md border-b border-dark-600"
+          : "bg-transparent"
       }`}
     >
       {/* Rock-themed background pattern */}
@@ -62,7 +64,9 @@ export function SiteHeader() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl md:text-2xl font-bold text-white">CLEO</h1>
-              <p className="text-xs md:text-sm text-gray-400">STREETSWEAR & ROCK</p>
+              <p className="text-xs md:text-sm text-gray-400">
+                Streetwear & ROCK
+              </p>
             </div>
           </Link>
 
@@ -79,15 +83,23 @@ export function SiteHeader() {
             <Link
               href="/products"
               className={`text-sm font-medium transition-colors hover:text-white ${
-                pathname.startsWith("/products") ? "text-white" : "text-gray-300"
+                pathname.startsWith("/products")
+                  ? "text-white"
+                  : "text-gray-300"
               }`}
             >
               Products
             </Link>
-            <Link href="/#about" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+            <Link
+              href="/#about"
+              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            >
               About
             </Link>
-            <Link href="/#contact" className="text-sm font-medium text-gray-300 transition-colors hover:text-white">
+            <Link
+              href="/#contact"
+              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+            >
               Contact
             </Link>
           </nav>
@@ -131,5 +143,5 @@ export function SiteHeader() {
         }`}
       />
     </header>
-  )
+  );
 }
