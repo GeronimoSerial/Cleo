@@ -44,7 +44,7 @@ export function ProductSelector({ product }: ProductSelectorProps) {
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
           {/* Rock-themed overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-30"></div>
         </div>
 
         {/* Image Thumbnails */}

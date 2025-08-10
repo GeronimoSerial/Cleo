@@ -41,7 +41,7 @@ export function CategoryHero({ category, productCount }: CategoryHeroProps) {
         </p>
 
         {/* Decorative elements */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50" />
       </div>
 
       {/* Corner accents */}

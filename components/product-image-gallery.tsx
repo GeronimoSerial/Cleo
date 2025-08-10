@@ -123,7 +123,7 @@ export function ProductImageGallery({ images, productName }: ProductImageGallery
             <button
               key={index}
               onClick={() => setCurrentImage(index)}
-              className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors ${
+              className={`relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors ${
                 currentImage === index ? "border-black" : "border-gray-200 hover:border-gray-400"
               }`}
             >

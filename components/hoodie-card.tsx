@@ -31,7 +31,7 @@ export function HoodieCard({ id, name, price, image1, image2 }: HoodieCardProps)
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
         {/* Rock-themed overlay effect */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 hover:opacity-60 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-0 hover:opacity-60 transition-opacity duration-300"></div>
       </div>
       <div className="p-4 md:p-6">
         <h3 className="text-lg md:text-xl font-semibold text-gray-100 mb-2">{name}</h3>

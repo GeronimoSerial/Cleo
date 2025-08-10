@@ -95,7 +95,7 @@ export function ProductsHomepage() {
         <div className="text-center mb-8 md:mb-12">
           <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
             PRODUCTS
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50" />
           </h2>
           <p className="text-gray-400 text-base md:text-lg tracking-wide mb-6">WHERE STREET MEETS ROCK</p>
 
@@ -114,9 +114,9 @@ export function ProductsHomepage() {
                 <Button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  variant={activeTab === tab.id ? "default" : "outline"}
+                  variant={activeTab === tab.id ? "default" : "outline-solid"}
                   size="sm"
-                  className={`flex-shrink-0 px-3 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${
+                  className={`shrink-0 px-3 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${
                     activeTab === tab.id
                       ? "bg-white text-black hover:bg-gray-200"
                       : "bg-transparent border-gray-600 text-gray-300 hover:border-white hover:text-white"
@@ -135,7 +135,7 @@ export function ProductsHomepage() {
               <Button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                variant={activeTab === tab.id ? "default" : "outline"}
+                variant={activeTab === tab.id ? "default" : "outline-solid"}
                 className={`px-4 lg:px-6 py-2 text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 ${
                   activeTab === tab.id
                     ? "bg-white text-black hover:bg-gray-200"
@@ -198,7 +198,7 @@ export function ProductsHomepage() {
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white to-transparent opacity-20" />
     </section>
   )
 }

@@ -55,7 +55,7 @@ export function ProductCard({
           {!imageLoaded && <div className="absolute inset-0 bg-dark-600 animate-pulse" />}
 
           {/* Rock-themed overlay effect */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300" />
 
           {/* Guitar pick accent */}
           <div
@@ -83,7 +83,7 @@ export function ProductCard({
         </div>
 
         {/* Rock-inspired geometric accent */}
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-20" />
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-20" />
       </div>
 
       <CardContent className="p-4 md:p-6">

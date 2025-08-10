@@ -153,7 +153,7 @@ export function ProductSelectorRedesigned({ product }: ProductSelectorRedesigned
             >
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="px-4 py-2 font-semibold text-lg min-w-[3rem] text-center">{quantity}</span>
+            <span className="px-4 py-2 font-semibold text-lg min-w-12 text-center">{quantity}</span>
             <Button
               variant="ghost"
               size="sm"

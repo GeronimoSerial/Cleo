@@ -44,7 +44,7 @@ export function SplashScreen() {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[60] flex flex-col items-center justify-center bg-dark-900 transition-opacity duration-500",
+        "fixed inset-0 z-60 flex flex-col items-center justify-center bg-dark-900 transition-opacity duration-500",
         isComplete ? "opacity-0 pointer-events-none" : "opacity-100",
       )}
     >

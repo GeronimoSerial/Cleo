@@ -135,7 +135,7 @@ export function ProductImageGalleryDark({ images, productName }: ProductImageGal
             <button
               key={index}
               onClick={() => setCurrentImage(index)}
-              className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors bg-dark-800 ${
+              className={`relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors bg-dark-800 ${
                 currentImage === index ? "border-white" : "border-dark-600 hover:border-gray-400"
               }`}
             >

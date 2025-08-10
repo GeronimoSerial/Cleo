@@ -75,7 +75,7 @@ export function HamburgerMenu() {
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-black bg-opacity-80 backdrop-blur-xs z-40 transition-opacity duration-300 lg:hidden ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMenu}
@@ -135,7 +135,7 @@ export function HamburgerMenu() {
           </div>
 
           {/* Decorative line */}
-          <div className="mt-4 w-16 h-0.5 bg-gradient-to-r from-white to-transparent opacity-50" />
+          <div className="mt-4 w-16 h-0.5 bg-linear-to-r from-white to-transparent opacity-50" />
         </div>
 
         {/* Navigation Links */}
@@ -156,7 +156,7 @@ export function HamburgerMenu() {
                       animationDelay: `${index * 0.1}s`,
                     }}
                   >
-                    <Icon className="w-5 h-5 flex-shrink-0" />
+                    <Icon className="w-5 h-5 shrink-0" />
                     <span className="font-medium">{link.label}</span>
 
                     {/* Active indicator */}
@@ -181,13 +181,13 @@ export function HamburgerMenu() {
           <div className="px-6 space-y-2">
             <Link href="/#about">
               <div className="group flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-dark-700 transition-all duration-300">
-                <Info className="w-5 h-5 flex-shrink-0" />
+                <Info className="w-5 h-5 shrink-0" />
                 <span className="font-medium">About</span>
               </div>
             </Link>
             <Link href="/#contact">
               <div className="group flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-dark-700 transition-all duration-300">
-                <Mail className="w-5 h-5 flex-shrink-0" />
+                <Mail className="w-5 h-5 shrink-0" />
                 <span className="font-medium">Contact</span>
               </div>
             </Link>

@@ -107,7 +107,7 @@ export function ProductsSection() {
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-100 relative">
             PRODUCTS
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 md:w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 md:w-24 h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50" />
           </h2>
           <p className="text-gray-400 text-lg md:text-xl tracking-wide mb-6 md:mb-8">WHERE STREET MEETS ROCK</p>
 
@@ -126,7 +126,7 @@ export function ProductsSection() {
                 setSelectedCategory(category)
                 setVisibleProducts(6)
               }}
-              variant={selectedCategory === category ? "default" : "outline"}
+              variant={selectedCategory === category ? "default" : "outline-solid"}
               className={`px-4 md:px-6 py-2 text-sm md:text-base font-semibold tracking-wide transition-all duration-300 ${
                 selectedCategory === category
                   ? "bg-white text-black hover:bg-gray-200"
@@ -168,7 +168,7 @@ export function ProductsSection() {
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-20" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white to-transparent opacity-20" />
     </section>
   )
 }

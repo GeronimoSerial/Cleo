@@ -17,7 +17,7 @@ export default function Home() {
             <div className="text-center mb-8 md:mb-12">
               <h2 className="mb-4 md:mb-8 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
                 The CLEO Story
-                <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-50"></div>
+                <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-0.5 md:h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50"></div>
               </h2>
             </div>
 
@@ -56,7 +56,7 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
                 {/* Rock-themed overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black opacity-30"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-transparent to-black opacity-30"></div>
                 <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 w-6 md:w-8 h-6 md:h-8 border-r-2 border-b-2 border-white opacity-50"></div>
 
                 {/* Guitar Pick Shape */}

@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 const images = [
   "https://64.media.tumblr.com/db8472cfbb89a155148003b053d5f3de/4d6d987e0cee7307-8e/s400x225/158142e8e876044a6191733a02f6ee5ac1643b58.gif",
   "https://i.pinimg.com/originals/14/f4/35/14f435eaaf8d107cca5055ce150eaf47.gif",
-]
+];
 
 export function AutoSliderBanner() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length)
-    }, 5000)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   const handleShopClick = () => {
-    const productSection = document.getElementById("product-section")
+    const productSection = document.getElementById("product-section");
     if (productSection) {
-      productSection.scrollIntoView({ behavior: "smooth" })
+      productSection.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -89,22 +89,28 @@ export function AutoSliderBanner() {
         ></div>
         <div
           className="absolute top-2/3 right-1/4 w-2 h-2 md:w-3 md:h-3 bg-white opacity-40 animate-pulse"
-          style={{ animationDelay: "1s", clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+          style={{
+            animationDelay: "1s",
+            clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+          }}
         ></div>
         <div
           className="absolute bottom-1/3 left-1/3 w-1 h-1 md:w-2 md:h-2 bg-white opacity-80 animate-pulse"
-          style={{ animationDelay: "2s", clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+          style={{
+            animationDelay: "2s",
+            clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+          }}
         ></div>
       </div>
 
       {/* Fixed Centered Content */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center relative z-10 px-4">
+      <div className="absolute inset-0 bg-opacity-10 flex items-center justify-center  z-10 px-4">
         <div className="text-center max-w-4xl w-full">
           {/* Main Brand Text - Properly Centered */}
           <div className="mb-6 md:mb-8 relative">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-gray-100 mb-3 md:mb-4 relative">
               CLEO
-              <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-0.5 md:h-1 bg-gradient-to-r from-transparent via-white to-transparent"></div>
+              <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-0.5 md:h-1 bg-linear-to-r from-transparent via-white to-transparent"></div>
             </h1>
 
             {/* StreetSwear & Rock - Properly Centered */}
@@ -113,7 +119,7 @@ export function AutoSliderBanner() {
                 <span className="relative z-10">STREETSWEAR</span>
                 <span className="mx-2 md:mx-4 text-white opacity-75">&</span>
                 <span className="relative z-10 text-gray-200">ROCK</span>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-4 md:h-8 bg-gradient-to-r from-transparent via-white to-transparent opacity-10 -skew-x-12"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-4 md:h-8 bg-linear-to-r from-transparent via-white to-transparent opacity-10 -skew-x-12"></div>
               </h2>
               <p className="text-base md:text-lg text-gray-300 tracking-wide font-light mb-6 md:mb-8">
                 ELEVATE YOUR STYLE
@@ -137,5 +143,5 @@ export function AutoSliderBanner() {
         </div>
       </div>
     </div>
-  )
+  );
 }

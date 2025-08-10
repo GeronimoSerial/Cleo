@@ -66,7 +66,7 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
               Ahorras ${savings.toFixed(2)} ({Math.round((savings / (product.originalPrice! * quantity)) * 100)}% OFF)
             </p>
           )}
-          <div className="w-20 h-1 bg-gradient-to-r from-white to-transparent opacity-50"></div>
+          <div className="w-20 h-1 bg-linear-to-r from-white to-transparent opacity-50"></div>
         </div>
       </div>
 
@@ -166,7 +166,7 @@ export function ProductSelectorDark({ product }: ProductSelectorDarkProps) {
             >
               <Minus className="w-4 h-4" />
             </Button>
-            <span className="px-4 py-2 font-bold text-lg min-w-[3rem] text-center text-white">{quantity}</span>
+            <span className="px-4 py-2 font-bold text-lg min-w-12 text-center text-white">{quantity}</span>
             <Button
               variant="ghost"
               size="sm"

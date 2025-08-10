@@ -23,7 +23,7 @@ export default function NotFound() {
         {/* 404 Display */}
         <div className="mb-8">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">404</h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-6" />
+          <div className="w-24 h-1 bg-linear-to-r from-transparent via-white to-transparent mx-auto mb-6" />
         </div>
 
         {/* Error Message */}

@@ -1,33 +1,39 @@
-"use client"
-
-import { notFound } from "next/navigation"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ProductImageGalleryDark } from "@/components/product-image-gallery-dark"
-import { ProductSelectorDark } from "@/components/product-selector-dark"
-import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-dark"
-import { RelatedProductsDark } from "@/components/related-products-dark"
-import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark"
-import { DynamicProductCard } from "@/components/dynamic-product-card"
-import { CategoryHero } from "@/components/category-hero"
-import { getProductBySlug, getCategoryBySlug, getProductsByCategory, getRelatedProducts } from "@/lib/products-api"
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ProductImageGalleryDark } from "@/components/product-image-gallery-dark";
+import { ProductSelectorDark } from "@/components/product-selector-dark";
+import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-dark";
+import { RelatedProductsDark } from "@/components/related-products-dark";
+import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark";
+import { DynamicProductCard } from "@/components/dynamic-product-card";
+import { CategoryHero } from "@/components/category-hero";
+import {
+  getProductBySlug,
+  getCategoryBySlug,
+  getProductsByCategory,
+  getRelatedProducts,
+} from "@/lib/products-api";
 
 interface ProductPageProps {
   params: {
-    segment: string
-  }
+    segment: string;
+  };
 }
 
 export default async function ProductClientPage({ params }: ProductPageProps) {
-  const { segment } = params
+  const { segment } = params;
 
   // Try to find a product first
-  const product = await getProductBySlug(segment)
+  const product = await getProductBySlug(segment);
 
   if (product) {
     // This is an individual product page
-    const relatedProducts = await getRelatedProducts(product.id, product.category)
+    const relatedProducts = await getRelatedProducts(
+      product.id,
+      product.category
+    );
 
     return (
       <main className="min-h-screen bg-dark-900 relative">
@@ -68,8 +74,12 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
                 </Button>
               </Link>
               <div className="text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">CLEO</h1>
-                <p className="text-sm md:text-base text-gray-400">STREETSWEAR & ROCK</p>
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
+                  CLEO
+                </h1>
+                <p className="text-sm md:text-base text-gray-400">
+                  STREETSWEAR & ROCK
+                </p>
               </div>
               <div className="w-32"></div>
             </div>
@@ -82,7 +92,10 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Product Images */}
               <div className="order-1">
-                <ProductImageGalleryDark images={product.images} productName={product.name} />
+                <ProductImageGalleryDark
+                  images={product.images}
+                  productName={product.name}
+                />
               </div>
 
               {/* Product Info */}
@@ -112,18 +125,23 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
         {/* Final CTA Section */}
         <div className="relative z-10 bg-dark-800 py-12 border-t border-dark-600">
           <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-100 mb-4">¿Listo para Rockear tu Estilo?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-100 mb-4">
+              ¿Listo para Rockear tu Estilo?
+            </h3>
             <p className="text-gray-300 mb-6">
-              Envío gratis a nivel nacional • Entrega en 24h • Cambios gratis en tienda
+              Envío gratis a nivel nacional • Entrega en 24h • Cambios gratis en
+              tienda
             </p>
             <Button
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300"
               size="lg"
-              onClick={() => {
-                const message = `¡Hola! Estoy interesado en ${product.name}`
-                const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`
-                window.open(whatsappUrl, "_blank")
-              }}
+              // onClick={() => {
+              //   const message = `¡Hola! Estoy interesado en ${product.name}`;
+              //   const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(
+              //     message
+              //   )}`;
+              //   window.open(whatsappUrl, "_blank");
+              // }}
             >
               Comprar por WhatsApp
             </Button>
@@ -133,15 +151,15 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
         {/* Sticky WhatsApp Button */}
         <StickyWhatsAppButtonDark product={product} />
       </main>
-    )
+    );
   }
 
   // Try to find a category
-  const category = await getCategoryBySlug(segment)
+  const category = await getCategoryBySlug(segment);
 
   if (category) {
     // This is a category page - keep existing category page logic
-    const categoryProducts = await getProductsByCategory(segment)
+    const categoryProducts = await getProductsByCategory(segment);
 
     return (
       <main className="min-h-screen bg-dark-900 relative">
@@ -164,20 +182,30 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <Link href="/products">
-                <Button variant="outline" className="flex items-center space-x-2 bg-transparent">
+                <Button
+                  variant="outline"
+                  className="flex items-center space-x-2 bg-transparent"
+                >
                   <ArrowLeft className="w-4 h-4" />
                   <span>All Products</span>
                 </Button>
               </Link>
               <div className="text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">CLEO</h1>
-                <p className="text-sm md:text-base text-gray-400">STREETSWEAR & ROCK</p>
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
+                  CLEO
+                </h1>
+                <p className="text-sm md:text-base text-gray-400">
+                  STREETSWEAR & ROCK
+                </p>
               </div>
               <div className="w-32"></div>
             </div>
 
             {/* Category Hero */}
-            <CategoryHero category={category} productCount={categoryProducts.length} />
+            <CategoryHero
+              category={category}
+              productCount={categoryProducts.length}
+            />
           </div>
         </div>
 
@@ -192,7 +220,9 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-gray-400 text-lg">No products found in this category.</p>
+                <p className="text-gray-400 text-lg">
+                  No products found in this category.
+                </p>
                 <Link href="/products">
                   <Button variant="outline" className="mt-4 bg-transparent">
                     Browse All Products
@@ -203,9 +233,9 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
           </div>
         </div>
       </main>
-    )
+    );
   }
 
   // Neither product nor category found
-  notFound()
+  notFound();
 }
