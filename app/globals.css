@@ -318,3 +318,128 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+/* Rock-themed animations for text reveal */
+@keyframes float-music-note {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.05;
+  }
+  25% {
+    transform: translateY(-15px) rotate(90deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes pulse-guitar-pick {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.05;
+  }
+  25% {
+    transform: scale(1.3) rotate(15deg);
+    opacity: 0.15;
+  }
+  50% {
+    transform: scale(1.6) rotate(30deg);
+    opacity: 0.2;
+  }
+  75% {
+    transform: scale(1.3) rotate(45deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes glitch-flicker {
+  0%, 100% {
+    opacity: 0;
+    transform: translateX(0) skewX(0deg);
+  }
+  5% {
+    opacity: 0.4;
+    transform: translateX(3px) skewX(2deg);
+  }
+  10% {
+    opacity: 0;
+    transform: translateX(-3px) skewX(-2deg);
+  }
+  15% {
+    opacity: 0.6;
+    transform: translateX(2px) skewX(1deg);
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(-2px) skewX(-1deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translateX(1px) skewX(3deg);
+  }
+  30% {
+    opacity: 0;
+  }
+}
+
+@keyframes sound-wave-pulse {
+  0%, 100% {
+    height: 10px;
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  25% {
+    height: 25px;
+    opacity: 0.6;
+    transform: scaleY(1.2);
+  }
+  50% {
+    height: 40px;
+    opacity: 0.9;
+    transform: scaleY(1.5);
+  }
+  75% {
+    height: 25px;
+    opacity: 0.6;
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes metal-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(150,150,150,0.2);
+    opacity: 0.1;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(200,200,200,0.4);
+    opacity: 0.3;
+  }
+}
+
+/* Apply animations to elements with specific classes */
+.animate-float-note {
+  animation: float-music-note 8s ease-in-out infinite;
+}
+
+.animate-pulse-pick {
+  animation: pulse-guitar-pick 6s ease-in-out infinite;
+}
+
+.animate-glitch {
+  animation: glitch-flicker 4s ease-in-out infinite;
+}
+
+.animate-sound-wave {
+  animation: sound-wave-pulse 2s ease-in-out infinite;
+}
+
+.animate-metal-glow {
+  animation: metal-glow 3s ease-in-out infinite;
+}
+

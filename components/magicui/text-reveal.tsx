@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react";
-import { ComponentPropsWithoutRef, FC, ReactNode, useRef } from "react";
+import { ComponentPropsWithoutRef, FC, ReactNode, useRef, Children } from "react";
 
 import { cn } from "@/lib/utils";
 
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
-  children: string;
+  children: ReactNode;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
@@ -15,11 +15,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
     target: targetRef,
   });
 
-  if (typeof children !== "string") {
-    throw new Error("TextReveal: children must be a string");
-  }
-
-  const words = children.split(" ");
+  const words = Children.toArray(children);
 
   return (
     <div ref={targetRef} className={cn("relative z-0 h-[200vh]", className)}>

@@ -11,7 +11,7 @@ export default function ProductsPage() {
   const allProducts = getAllProducts();
 
   return (
-    <main className="min-h-screen bg-dark-900 relative">
+    <main className="min-h-screen relative">
       {/* Rock-themed Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         {[...Array(12)].map((_, i) => (

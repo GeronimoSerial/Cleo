@@ -1,5 +1,5 @@
-import { AutoSliderBanner } from "@/components/auto-slider-banner"
-import { ProductsHomepage } from "@/components/products-homepage"
+import { AutoSliderBanner } from "@/components/auto-slider-banner";
+import { ProductsHomepage } from "@/components/products-homepage";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <ProductsHomepage />
 
       {/* Brand Story Section */}
-      <section className="w-full py-8 md:py-12 lg:py-24 bg-dark-800 relative">
+      <section className="w-full py-8 md:py-12 lg:py-24 relative">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
@@ -24,27 +24,41 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  Born from the fusion of street culture and rock rebellion. CLEO represents the intersection where
-                  urban streetwear meets the raw energy of rock music.
+                  Born from the fusion of street culture and rock rebellion.
+                  CLEO represents the intersection where urban streetwear meets
+                  the raw energy of rock music.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                  Each piece embodies the spirit of both worlds—comfortable enough for the streets, bold enough for the
-                  stage. Premium materials meet edgy design in every thread.
+                  Each piece embodies the spirit of both worlds—comfortable
+                  enough for the streets, bold enough for the stage. Premium
+                  materials meet edgy design in every thread.
                 </p>
 
                 {/* Stats Grid - Responsive */}
                 <div className="grid grid-cols-3 gap-4 md:gap-8 text-center md:text-left pt-4 md:pt-6">
                   <div>
-                    <div className="text-xl md:text-2xl font-bold text-white">2520</div>
-                    <div className="text-xs md:text-sm text-gray-400">Founded</div>
+                    <div className="text-xl md:text-2xl font-bold text-white">
+                      2520
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-400">
+                      Founded
+                    </div>
                   </div>
                   <div>
-                    <div className="text-xl md:text-2xl font-bold text-white">100%</div>
-                    <div className="text-xs md:text-sm text-gray-400">Premium Cotton</div>
+                    <div className="text-xl md:text-2xl font-bold text-white">
+                      100%
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-400">
+                      Premium Cotton
+                    </div>
                   </div>
                   <div>
-                    <div className="text-xl md:text-2xl font-bold text-white">∞</div>
-                    <div className="text-xs md:text-sm text-gray-400">Attitude</div>
+                    <div className="text-xl md:text-2xl font-bold text-white">
+                      ∞
+                    </div>
+                    <div className="text-xs md:text-sm text-gray-400">
+                      Attitude
+                    </div>
                   </div>
                 </div>
               </div>
@@ -62,7 +76,9 @@ export default function Home() {
                 {/* Guitar Pick Shape */}
                 <div
                   className="absolute top-4 left-4 w-6 h-8 md:w-8 md:h-10 bg-white opacity-20"
-                  style={{ clipPath: "polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%)" }}
+                  style={{
+                    clipPath: "polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%)",
+                  }}
                 ></div>
               </div>
             </div>
@@ -70,5 +86,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  )
+  );
 }

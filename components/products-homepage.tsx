@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ProductCarousel } from "./product-carousel";
-import { RockSoundWave } from "./rock-sound-wave";
 import { Button } from "@/components/ui/button";
-import { TextReveal } from "./magicui/text-reveal";
 import { ProductsTextReveal } from "./reveal-products";
 import {
   getAllProducts,
@@ -14,6 +12,7 @@ import {
   getFeaturedProducts,
   type Product,
 } from "@/lib/products-api";
+import Lightning from "./Lightning/Lightning";
 
 const tabs = [
   { id: "featured", label: "Featured", icon: "⭐" },
@@ -66,7 +65,7 @@ export function ProductsHomepage() {
   };
 
   return (
-    <section className="w-full py-8 md:py-12 lg:py-16 bg-dark-900 relative">
+    <section className="w-full py-8 md:py-12 lg:py-16 relative">
       {/* Rock-themed Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         {/* Guitar fret lines */}
