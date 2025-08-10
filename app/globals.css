@@ -1,11 +1,10 @@
 @import 'tailwindcss';
-
 @plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Dark theme colors */
+  /* Dark theme colors - unified */
   --color-dark-100: #2a2a2a;
   --color-dark-200: #252525;
   --color-dark-300: #202020;
@@ -14,7 +13,60 @@
   --color-dark-600: #101010;
   --color-dark-900: #0a0a0a;
 
-  /* Base colors for design system */
+  /* test */
+/* Dark Rock Urban Theme */
+    --background: 220 13% 9%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 45 93% 58%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 0 84% 55%;
+
+    --radius: 0.75rem;
+
+    /* Rock Urban Specific Colors */
+    --rock-black: 220 13% 8%;
+    --rock-dark: 220 13% 12%;
+    --rock-medium: 220 13% 18%;
+    --rock-light: 220 13% 25%;
+    --rock-red: 0 84% 55%;
+    --rock-gold: 45 93% 58%;
+    --rock-steel: 0 0% 75%;
+    --rock-shadow: 220 13% 5%;
+
+    /* Gradients */
+    --gradient-rock: linear-gradient(135deg, hsl(var(--rock-black)), hsl(var(--rock-dark)));
+    --gradient-metal: linear-gradient(90deg, hsl(var(--rock-steel) / 0.1), hsl(var(--rock-steel) / 0.3), hsl(var(--rock-steel) / 0.1));
+    --gradient-fire: linear-gradient(135deg, hsl(var(--rock-red)), hsl(var(--accent)));
+
+    /* Shadows */
+    --shadow-rock: 0 10px 30px hsl(var(--rock-shadow) / 0.5);
+    --shadow-glow-red: 0 0 20px hsl(var(--rock-red) / 0.3);
+    --shadow-intense: 0 20px 40px hsl(var(--rock-shadow) / 0.8);
+  /*end test  */
+
+  /* Base design system - HSL values */
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 212.7 26.8% 83.9%;
@@ -35,36 +87,11 @@
   --card: 222.2 84% 4.9%;
   --card-foreground: 210 40% 98%;
 
-  /* Custom variables for CSS color functions */
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-
   /* Border radius */
   --radius: 0.5rem;
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-
-  /* Custom animations */
-  --animate-matrix: matrix-fade 0.5s ease-in-out infinite;
-  --animate-click: click 0.3s ease-in-out;
 
   /* Animation durations */
   --animate-duration-75: 75ms;
@@ -88,34 +115,65 @@
   --scale-125: 1.25;
   --scale-150: 1.5;
 
+  /* Keyframes */
   @keyframes matrix-fade {
-    0%,
-    100% {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes click {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+  }
+  
+  @keyframes glitch-flicker {
+    0%, 100% {
+      opacity: 0;
+      transform: translateX(0) skewX(0deg);
+    }
+    5% {
+      opacity: 0.4;
+      transform: translateX(3px) skewX(2deg);
+    }
+    10% {
+      opacity: 0;
+      transform: translateX(-3px) skewX(-2deg);
+    }
+    15% {
+      opacity: 0.6;
+      transform: translateX(2px) skewX(1deg);
+    }
+    20% {
+      opacity: 0;
+      transform: translateX(-2px) skewX(-1deg);
+    }
+    25% {
+      opacity: 0.3;
+      transform: translateX(1px) skewX(3deg);
+    }
+    30% {
       opacity: 0;
     }
-    50% {
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
       opacity: 1;
+      transform: translateX(0);
     }
   }
-  @keyframes click {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(0.95);
-    }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Tailwind v4 compatibility */
 @layer base {
   *,
   ::after,
@@ -130,329 +188,16 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
-  
-  /* Base HSL values for design system - Dark theme */
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --radius: 0.5rem;
 }
 
+/* Base body styles */
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-  cursor: none;
-}
-
-/* Custom inverse cursor */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-/* Inverse text selection */
-::selection {
-  background-color: #ffffff;
-  color: #0a0a0a;
-}
-
-/* Click animation */
-@keyframes click {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.cursor-click {
-  animation: click 0.3s ease-in-out;
-}
-
-/* Hide scrollbar but keep functionality */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Smooth scrolling for carousels */
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
-
-/* Touch scroll momentum for iOS */
-.carousel-container {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Custom scrollbar for desktop */
-.custom-scrollbar::-webkit-scrollbar {
-  height: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-/* Carousel animations */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.carousel-item {
-  animation: slideIn 0.3s ease-out;
-}
-
-/* Loading animation */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.loading-pulse {
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* Mobile-first responsive utilities */
-@media (max-width: 640px) {
-  .mobile-scroll-snap {
-    scroll-snap-type: x mandatory;
-  }
-
-  .mobile-scroll-snap > * {
-    scroll-snap-align: start;
-  }
-}
-
-/* Prevent horizontal scroll on body */
-body {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  ) rgb(var(--background-start-rgb));
   overflow-x: hidden;
 }
 
-/* Smooth transitions for all interactive elements */
-* {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-    transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Enhanced animation support */
-@media (prefers-reduced-motion: no-preference) {
-  * {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
-      transform, filter, backdrop-filter, scale;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-  
-  .transition-all {
-    transition-property: all;
-  }
-  
-  .transition-transform {
-    transition-property: transform;
-  }
-  
-  .duration-300 {
-    transition-duration: 300ms;
-  }
-  
-  .duration-500 {
-    transition-duration: 500ms;
-  }
-  
-  .ease-in-out {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-/* Rock-themed animations for text reveal */
-@keyframes float-music-note {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.05;
-  }
-  25% {
-    transform: translateY(-15px) rotate(90deg);
-    opacity: 0.15;
-  }
-  50% {
-    transform: translateY(-30px) rotate(180deg);
-    opacity: 0.2;
-  }
-  75% {
-    transform: translateY(-15px) rotate(270deg);
-    opacity: 0.15;
-  }
-}
-
-@keyframes pulse-guitar-pick {
-  0%, 100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.05;
-  }
-  25% {
-    transform: scale(1.3) rotate(15deg);
-    opacity: 0.15;
-  }
-  50% {
-    transform: scale(1.6) rotate(30deg);
-    opacity: 0.2;
-  }
-  75% {
-    transform: scale(1.3) rotate(45deg);
-    opacity: 0.15;
-  }
-}
-
-@keyframes glitch-flicker {
-  0%, 100% {
-    opacity: 0;
-    transform: translateX(0) skewX(0deg);
-  }
-  5% {
-    opacity: 0.4;
-    transform: translateX(3px) skewX(2deg);
-  }
-  10% {
-    opacity: 0;
-    transform: translateX(-3px) skewX(-2deg);
-  }
-  15% {
-    opacity: 0.6;
-    transform: translateX(2px) skewX(1deg);
-  }
-  20% {
-    opacity: 0;
-    transform: translateX(-2px) skewX(-1deg);
-  }
-  25% {
-    opacity: 0.3;
-    transform: translateX(1px) skewX(3deg);
-  }
-  30% {
-    opacity: 0;
-  }
-}
-
-@keyframes sound-wave-pulse {
-  0%, 100% {
-    height: 10px;
-    opacity: 0.3;
-    transform: scaleY(1);
-  }
-  25% {
-    height: 25px;
-    opacity: 0.6;
-    transform: scaleY(1.2);
-  }
-  50% {
-    height: 40px;
-    opacity: 0.9;
-    transform: scaleY(1.5);
-  }
-  75% {
-    height: 25px;
-    opacity: 0.6;
-    transform: scaleY(1.2);
-  }
-}
-
-@keyframes metal-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(150,150,150,0.2);
-    opacity: 0.1;
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(200,200,200,0.4);
-    opacity: 0.3;
-  }
-}
-
-/* Apply animations to elements with specific classes */
-.animate-float-note {
-  animation: float-music-note 8s ease-in-out infinite;
-}
-
-.animate-pulse-pick {
-  animation: pulse-guitar-pick 6s ease-in-out infinite;
-}
-
-.animate-glitch {
-  animation: glitch-flicker 4s ease-in-out infinite;
-}
-
-.animate-sound-wave {
-  animation: sound-wave-pulse 2s ease-in-out infinite;
-}
-
-.animate-metal-glow {
-  animation: metal-glow 3s ease-in-out infinite;
-}
-.glitch-text {
-  position: relative;
-  display: inline-block;
-  perspective: 1000px;
-}
-.glitch-layer {
-  z-index: 1;
-  filter: blur(0.5px);
-  animation: glitch-flicker 0.3s infinite steps(2, end);
-}
-@keyframes glitch-flicker {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.2; }
-}
