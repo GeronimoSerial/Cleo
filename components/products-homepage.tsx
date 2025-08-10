@@ -69,16 +69,6 @@ export function ProductsHomepage() {
       {/* Rock-themed Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
         {/* Guitar fret lines */}
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-full border-t border-white"
-            style={{
-              top: `${20 + i * 12}%`,
-              opacity: 0.3 - i * 0.04,
-            }}
-          />
-        ))}
 
         {/* Floating music elements */}
         <div
@@ -98,19 +88,6 @@ export function ProductsHomepage() {
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
           <ProductsTextReveal />
-          {/* <TextReveal>Products, where street meets rock</TextReveal> */}
-          {/* <h2 className="mb-4 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
-            PRODUCTS
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50" />
-          </h2>
-          <p className="text-gray-400 text-base md:text-lg tracking-wide mb-6">
-            WHERE STREET MEETS ROCK
-          </p> */}
-
-          {/* Sound Wave Divider */}
-          {/* <div className="flex justify-center mb-8 md:mb-12">
-            <RockSoundWave />
-          </div> */}
         </div>
 
         {/* Mobile-First Tab Navigation */}
@@ -198,17 +175,6 @@ export function ProductsHomepage() {
             </div>
           )}
         </div>
-
-        {/* Call to Action */}
-        {/* <div className="text-center mt-8 md:mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-6 md:px-8 py-3 text-base md:text-lg font-semibold tracking-wide bg-transparent border-2 border-gray-600 hover:border-white hover:bg-white hover:text-black transition-all duration-300"
-          >
-            VIEW ALL PRODUCTS
-          </Button>
-        </div> */}
       </div>
 
       {/* Bottom Accent Line */}

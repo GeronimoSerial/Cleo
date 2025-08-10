@@ -442,4 +442,17 @@ body {
 .animate-metal-glow {
   animation: metal-glow 3s ease-in-out infinite;
 }
-
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px;
+}
+.glitch-layer {
+  z-index: 1;
+  filter: blur(0.5px);
+  animation: glitch-flicker 0.3s infinite steps(2, end);
+}
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.2; }
+}

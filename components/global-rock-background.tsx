@@ -5,8 +5,19 @@ export function GlobalRockBackground() {
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Base black background with subtle texture */}
       <div className="absolute inset-0 bg-black" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-800 to-black opacity-70" />
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-800 to-black opacity-70" /> */}
+      <div className="min-h-screen w-full relative bg-black">
+        {/* Magenta Nebula Background with Top Glow */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(236, 72, 153, 0.25), transparent 70%), #000000",
+          }}
+        />
 
+        {/* Your Content/Components */}
+      </div>
       {/* Metal grid pattern - more aggressive */}
       <div className="absolute opacity-20">
         {/* Horizontal lines */}
@@ -53,8 +64,8 @@ export function GlobalRockBackground() {
       />
 
       {/* Harsh light streaks */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-gray-500 via-transparent to-transparent opacity-10"></div>
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-500 to-transparent opacity-10"></div>
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-gray-500 via-transparent to-transparent opacity-30"></div>
+      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-500 to-transparent opacity-30"></div>
 
       {/* CLEO text background */}
       <div

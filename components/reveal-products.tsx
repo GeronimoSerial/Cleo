@@ -6,53 +6,27 @@ export function ProductsTextReveal() {
       {/* TextReveal Component - positioned relative for proper scroll functionality */}
       <div className="relative z-10">
         <TextReveal>
-          {`Products, where `}
-          {<span className="underline-on-scroll">street</span>}
-          {` meets `}
-          {<span className="underline-on-scroll">rock</span>}
+          {/* {`En CLEO no fabricamos `} */}
+          <span className="font-medium"> En CLEO no fabricamos</span>
+          {<span className="font-extrabold">tendencias</span>}
+          {`las `}
+          <span className="relative font-black glitch-text bg-gradient-to-br from-[#7c095d] via-indigo-900 to-gray-500 bg-clip-text text-transparent">
+            <span
+              aria-hidden
+              className="absolute inset-0 glitch-layer -translate-x-0.5 -translate-y-0.5 text-white opacity-60 pointer-events-none select-none"
+            >
+              provocamos
+            </span>
+            <span
+              aria-hidden
+              className="absolute inset-0 glitch-layer translate-x-0.5 translate-y-0.5 text-[#7c095d] opacity-60 pointer-events-none select-none"
+            >
+              provocamos
+            </span>
+            <span className="relative">provocamos</span>
+          </span>
         </TextReveal>
       </div>
-
-      {/* Add underline animation on scroll */}
-      <style jsx>{`
-        .underline-on-scroll {
-          position: relative;
-          display: inline-block;
-        }
-
-        .underline-on-scroll::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          height: 2px;
-          background-color: currentColor;
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.3s ease-out;
-        }
-
-        .underline-on-scroll.in-view::after {
-          transform: scaleX(1);
-        }
-      `}</style>
-
-      <script>
-        {`
-          document.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.underline-on-scroll');
-            elements.forEach((el) => {
-              const rect = el.getBoundingClientRect();
-              if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                el.classList.add('in-view');
-              } else {
-                el.classList.remove('in-view');
-              }
-            });
-          });
-        `}
-      </script>
     </div>
   );
 }
