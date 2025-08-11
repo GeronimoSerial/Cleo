@@ -1,76 +1,65 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ProductCarousel } from "./product-carousel";
 import { Button } from "@/components/ui/button";
 import { ProductsTextReveal } from "./reveal-products";
-import {
-  getAllProducts,
-  getNewArrivals,
-  getLimitedEdition,
-  getBestSellers,
-  getFeaturedProducts,
-  type Product,
-} from "@/lib/products-api";
-import Lightning from "./Lightning/Lightning";
+import { getAllProducts, type Product } from "@/lib/directus-api";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const tabs = [
-  { id: "featured", label: "Featured", icon: "⭐" },
-  { id: "all", label: "All", icon: "🎸" },
-  { id: "new", label: "New Arrivals", icon: "🔥" },
-  { id: "limited", label: "Limited Edition", icon: "💎" },
-  { id: "bestsellers", label: "Best Sellers", icon: "🏆" },
+  { id: "featured", label: "Featured", shortLabel: "★" },
+  { id: "all", label: "All", shortLabel: "All" },
+  { id: "new", label: "New Arrivals", shortLabel: "New" },
+  { id: "limited", label: "Limited Edition", shortLabel: "Ltd" },
+  { id: "bestsellers", label: "Best Sellers", shortLabel: "Top" },
 ];
 
 export function ProductsHomepage() {
   const [activeTab, setActiveTab] = useState("featured");
-  const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Load all products once on mount
   useEffect(() => {
-    loadProducts();
-  }, [activeTab]);
-
-  const loadProducts = async () => {
-    setLoading(true);
-    try {
-      let productData: Product[] = [];
-
-      switch (activeTab) {
-        case "all":
-          productData = await getAllProducts();
-          break;
-        case "new":
-          productData = await getNewArrivals();
-          break;
-        case "limited":
-          productData = await getLimitedEdition();
-          break;
-        case "bestsellers":
-          productData = await getBestSellers();
-          break;
-        case "featured":
-        default:
-          productData = await getFeaturedProducts();
-          break;
+    const loadAllProducts = async () => {
+      setLoading(true);
+      try {
+        const productData = await getAllProducts();
+        setAllProducts(productData);
+      } catch (error) {
+        console.error("Error loading products:", error);
+        setAllProducts([]);
+      } finally {
+        setLoading(false);
       }
+    };
 
-      setProducts(productData);
-    } catch (error) {
-      console.error("Error loading products:", error);
-      setProducts([]);
-    } finally {
-      setLoading(false);
+    loadAllProducts();
+  }, []); // Only run once on mount
+
+  // Filter products based on active tab - no API calls, instant filtering
+  const filteredProducts = useMemo(() => {
+    switch (activeTab) {
+      case "all":
+        return allProducts;
+      case "new":
+        return allProducts.filter((product) => product.isNew);
+      case "limited":
+        return allProducts.filter((product) => product.isLimited);
+      default:
+        return allProducts.filter((product) => product.name);
+      // case "bestsellers":
+      //   return allProducts.filter((product) => product.isBestSeller);
+      // case "featured":
+      // default:
+      //   return allProducts.filter((product) => product.featured);
     }
-  };
+  }, [activeTab, allProducts]);
 
   return (
     <section className="w-full py-8 md:py-12 lg:py-16 relative">
-      {/* Rock-themed Background Elements */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
-        {/* Guitar fret lines */}
-
-        {/* Floating music elements */}
         <div
           className="absolute top-1/4 left-1/6 w-2 h-2 md:w-3 md:h-3 bg-white opacity-20 animate-pulse"
           style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
@@ -84,97 +73,67 @@ export function ProductsHomepage() {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10  ">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center">
           <ProductsTextReveal />
         </div>
 
-        {/* Mobile-First Tab Navigation */}
-        <div className="mb-8 md:mb-12">
-          {/* Mobile: Horizontal Scroll Tabs */}
-          <div className="md:hidden">
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-              {tabs.map((tab) => (
-                <Button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  variant={activeTab === tab.id ? "default" : "outline"}
-                  size="sm"
-                  className={`shrink-0 px-3 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? "bg-white text-black hover:bg-gray-200"
-                      : "bg-transparent border-gray-600 text-gray-300 hover:border-white hover:text-white"
-                  }`}
-                >
-                  <span className="mr-1">{tab.icon}</span>
-                  {tab.label}
-                </Button>
-              ))}
-            </div>
-          </div>
+        <div className="bg-transparent p-4 md:p-8 rounded-xl shadow-2xl overflow-hidden">
+          <div className="overflow-x-hidden">
+            <Tabs defaultValue="featured" onValueChange={setActiveTab}>
+              <TabsList className="bg-transparent p-1 rounded-full border border-zinc-700 flex items-center justify-center md:justify-center space-x-1 overflow-x-auto scrollbar-hide w-full max-w-full">
+                {tabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    className={`
+                px-2 md:px-6 py-2 rounded-full transition-all duration-300 ease-in-out
+                text-zinc-400 data-[state=active]:bg-zinc-700 data-[state=active]:text-white data-[state=active]:font-semibold
+                hover:text-white hover:bg-zinc-700
+                focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:outline-none
+                whitespace-nowrap text-xs md:text-base shrink-0 min-w-0
+              `}
+                  >
+                    <span className="md:hidden">{tab.shortLabel}</span>
+                    <span className="hidden md:inline">{tab.label}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
-          {/* Desktop: Centered Tabs */}
-          <div className="hidden md:flex justify-center gap-2 lg:gap-4">
-            {tabs.map((tab) => (
-              <Button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                variant={activeTab === tab.id ? "default" : "outline"}
-                className={`px-4 lg:px-6 py-2 text-sm lg:text-base font-semibold tracking-wide transition-all duration-300 ${
-                  activeTab === tab.id
-                    ? "bg-white text-black hover:bg-gray-200"
-                    : "bg-transparent border-gray-600 text-gray-300 hover:border-white hover:text-white"
-                }`}
-              >
-                <span className="mr-2">{tab.icon}</span>
-                {tab.label}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        {/* Products Carousel */}
-        <div className="relative">
-          {loading ? (
-            <div className="flex justify-center items-center py-12">
-              <div className="flex space-x-2">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-2 h-2 bg-white rounded-full animate-pulse"
-                    style={{ animationDelay: `${i * 0.2}s` }}
-                  />
+              <div className="mt-8">
+                {tabs.map((tab) => (
+                  <TabsContent
+                    key={tab.id}
+                    value={tab.id}
+                    className="focus:outline-none"
+                  >
+                    <ProductCarousel
+                      products={filteredProducts}
+                      title={tab.label}
+                      showNavigation={true}
+                    />
+                  </TabsContent>
                 ))}
               </div>
-            </div>
-          ) : (
-            <ProductCarousel
-              products={products}
-              title={
-                tabs.find((tab) => tab.id === activeTab)?.label || "Products"
-              }
-              showNavigation={true}
-            />
-          )}
-
-          {/* Empty State */}
-          {!loading && products.length === 0 && (
-            <div className="text-center py-12">
-              <div className="mb-4">
-                <div className="w-16 h-16 mx-auto mb-4 bg-dark-700 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🎸</span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-100 mb-2">
-                  No Products Found
-                </h3>
-                <p className="text-gray-400">
-                  Check back soon for new arrivals!
-                </p>
-              </div>
-            </div>
-          )}
+            </Tabs>
+          </div>
         </div>
+        {/* Empty State */}
+        {/* {!loading && filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <div className="mb-4">
+              <div className="w-16 h-16 mx-auto mb-4 bg-dark-700 rounded-full flex items-center justify-center">
+                <span className="text-2xl">🎸</span>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-100 mb-2">
+                No Products Found
+              </h3>
+              <p className="text-gray-400">Check back soon for new arrivals!</p>
+            </div>
+          </div>
+        )}
+      </div> */}
       </div>
 
       {/* Bottom Accent Line */}

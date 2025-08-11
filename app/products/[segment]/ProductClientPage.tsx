@@ -8,7 +8,7 @@ import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-da
 import { RelatedProductsDark } from "@/components/related-products-dark";
 import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark";
 
-import { getProductBySlug, getRelatedProducts } from "@/lib/products-api";
+import { getProductBySlug, getRelatedProducts } from "@/lib/directus-api";
 
 interface ProductPageProps {
   params: {

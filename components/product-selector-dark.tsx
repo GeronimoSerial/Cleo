@@ -14,7 +14,7 @@ import {
   Truck,
   Clock,
 } from "lucide-react";
-import type { Product } from "@/lib/products-api";
+import type { Product } from "@/lib/directus-api";
 
 interface ProductSelectorDarkProps {
   product: Product;

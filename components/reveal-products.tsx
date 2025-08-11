@@ -6,8 +6,8 @@ export function ProductsTextReveal() {
       {/* TextReveal Component - positioned relative for proper scroll functionality */}
       <div className="relative z-10">
         <TextReveal>
-          {/* {`En CLEO no fabricamos `} */}
-          <span className="font-medium"> En CLEO no fabricamos</span>
+          {`En CLEO `}
+          {`no fabricamos `}
           {<span className="font-extrabold">tendencias</span>}
           {`las `}
           <span className="relative font-black glitch-text bg-gradient-to-br from-[#7c095d] via-indigo-900 to-gray-500 bg-clip-text text-transparent">

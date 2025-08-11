@@ -1,4 +1,4 @@
-import { getAllProducts } from "@/lib/products-api";
+import { getAllProducts, getAllCategories } from "@/lib/directus-api";
 import ProductClientPage from "./ProductClientPage";
 
 export default async function ProductPage({
@@ -10,7 +10,7 @@ export default async function ProductPage({
 }
 
 export async function generateStaticParams() {
-  const { categories } = await import("@/data/products.json");
+  const categories = await getAllCategories();
 
   const products = await getAllProducts();
   const categoriesData = categories;

@@ -10,6 +10,7 @@ import { categories } from "@/lib/products-data";
 export function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const heights: number[] = [12, 14, 10, 16, 13, 15, 11, 14];
 
   // Close menu when route changes
   useEffect(() => {
@@ -209,15 +210,14 @@ export function HamburgerMenu() {
             <p className="text-xs text-gray-500 mb-2">© 2023 CLEO</p>
             <p className="text-xs text-gray-600">Where Street Meets Rock</p>
           </div>
-
           {/* Sound wave visualization */}
           <div className="flex justify-center mt-4 space-x-1">
-            {[...Array(8)].map((_, i) => (
+            {heights.map((height: number, i: number) => (
               <div
                 key={i}
                 className="w-0.5 bg-gray-600 animate-pulse"
                 style={{
-                  height: `${Math.random() * 16 + 8}px`,
+                  height: `${height}px`,
                   animationDelay: `${i * 0.2}s`,
                   animationDuration: "1.5s",
                 }}

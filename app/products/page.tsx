@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { DynamicProductCard } from "@/components/dynamic-product-card";
+import { ProductCard } from "@/components/dynamic-product-card";
 import { RockSoundWave } from "@/components/rock-sound-wave";
 import { Card } from "@/components/ui/card";
-import { getAllProducts, categories } from "@/lib/products-data";
+import { getAllProducts, getAllCategories } from "@/lib/directus-api";
 import Image from "next/image";
 
-export default function ProductsPage() {
-  const allProducts = getAllProducts();
+export default async function ProductsPage() {
+  const allProducts = await getAllProducts();
+  const categories = await getAllCategories();
 
   return (
     <main className="min-h-screen relative">
@@ -106,7 +107,7 @@ export default function ProductsPage() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {allProducts.map((product) => (
-              <DynamicProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
