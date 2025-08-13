@@ -1,4 +1,10 @@
 // Tipos para Directus
+export interface DirectusImageRelation {
+  id: number
+  Productos_id: number
+  directus_files_id: string
+}
+
 export interface DirectusProduct {
   id: number
   nombre: string
@@ -11,10 +17,11 @@ export interface DirectusProduct {
   colores: string[]
   stock: boolean
   slug: string
-  imagenes: number[]
+  imagenes: DirectusImageRelation[]
   is_limited?: boolean
   is_best_seller?: boolean
   featured?: boolean
+  destacado?: boolean
 }
 
 export interface Product {
@@ -46,8 +53,8 @@ export interface Category {
 const DIRECTUS_URL = 'https://devcms.geroserial.com'
 
 // Función para obtener URL de imagen
-function getImageUrl(imageId: number): string {
-  return `${DIRECTUS_URL}/assets/${imageId}`
+function getImageUrl(imageRelation: DirectusImageRelation): string {
+  return `${DIRECTUS_URL}/assets/${imageRelation.directus_files_id}`
 }
 
 // Mapeo de datos
@@ -64,20 +71,20 @@ function mapProduct(directusProduct: DirectusProduct): Product {
     originalPrice: originalPrice ? Math.round(originalPrice) : undefined,
     description: directusProduct.descripcion,
     category: directusProduct.categoria,
-    images: directusProduct.imagenes.map(imageId => getImageUrl(imageId)),
+    images: directusProduct.imagenes.map(imageRelation => getImageUrl(imageRelation)),
     isNew: directusProduct.nuevo || false,
     isLimited: directusProduct.is_limited || false,
     isBestSeller: directusProduct.is_best_seller || false,
     sizes: directusProduct.sizes || [],
     colors: directusProduct.colores || [],
     inStock: directusProduct.stock,
-    featured: directusProduct.featured || false
+    featured: directusProduct.destacado || directusProduct.featured || false
   }
 }
 
 // Obtener todos los productos
 export async function getAllProducts(): Promise<Product[]> {
-  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[stock][_eq]=true&sort=-nuevo,-id&fields=*`, {
+  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[stock][_eq]=true&sort=-nuevo,-id&fields=*,imagenes.*`, {
     next: { 
       revalidate: 3600,
       tags: ['products'] 
@@ -90,7 +97,7 @@ export async function getAllProducts(): Promise<Product[]> {
 
 // Obtener producto por slug
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
-  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[slug][_eq]=${slug}&filter[stock][_eq]=true&fields=*&limit=1`, {
+  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[slug][_eq]=${slug}&filter[stock][_eq]=true&fields=*,imagenes.*&limit=1`, {
     next: { 
       revalidate: 3600,
       tags: ['products'] 
@@ -103,7 +110,7 @@ export async function getProductBySlug(slug: string): Promise<Product | undefine
 
 // Obtener productos por categoría
 export async function getProductsByCategory(category: string): Promise<Product[]> {
-  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[categoria][_eq]=${category}&filter[stock][_eq]=true&fields=*&sort=-nuevo,-id`, {
+  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[categoria][_eq]=${category}&filter[stock][_eq]=true&fields=*,imagenes.*&sort=-nuevo,-id`, {
     next: { 
       revalidate: 3600,
       tags: ['products'] 
@@ -143,7 +150,7 @@ export async function getAllCategories(): Promise<Category[]> {
 
 // Obtener productos relacionados
 export async function getRelatedProducts(productId: number, category: string, limit = 3): Promise<Product[]> {
-  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[categoria][_eq]=${category}&filter[id][_neq]=${productId}&filter[stock][_eq]=true&fields=*&limit=${limit}&sort=-nuevo,-id`, {
+  const response = await fetch(`${DIRECTUS_URL}/items/Productos?filter[categoria][_eq]=${category}&filter[id][_neq]=${productId}&filter[stock][_eq]=true&fields=*,imagenes.*&limit=${limit}&sort=-nuevo,-id`, {
     next: { 
       revalidate: 3600,
       tags: ['products'] 

@@ -1,56 +1,61 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Image from "next/image"
-import { ChevronLeft, ChevronRight, ZoomIn, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, ZoomIn, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 interface ProductImageGalleryDarkProps {
-  images: string[]
-  productName: string
+  images: string[];
+  productName: string;
 }
 
-export function ProductImageGalleryDark({ images, productName }: ProductImageGalleryDarkProps) {
-  const [currentImage, setCurrentImage] = useState(0)
-  const [isZoomed, setIsZoomed] = useState(false)
-  const [touchStart, setTouchStart] = useState<number | null>(null)
-  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+export function ProductImageGalleryDark({
+  images,
+  productName,
+}: ProductImageGalleryDarkProps) {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const minSwipeDistance = 50
+  const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
-    setTouchStart(e.targetTouches[0].clientX)
-  }
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-  }
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (!touchStart || !touchEnd) return;
 
-    const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe && currentImage < images.length - 1) {
-      setCurrentImage(currentImage + 1)
+      setCurrentImage(currentImage + 1);
     }
     if (isRightSwipe && currentImage > 0) {
-      setCurrentImage(currentImage - 1)
+      setCurrentImage(currentImage - 1);
     }
-  }
+  };
 
   const goToPrevious = () => {
-    setCurrentImage(currentImage > 0 ? currentImage - 1 : images.length - 1)
-  }
+    setCurrentImage(currentImage > 0 ? currentImage - 1 : images.length - 1);
+  };
 
   const goToNext = () => {
-    setCurrentImage(currentImage < images.length - 1 ? currentImage + 1 : 0)
-  }
+    setCurrentImage(currentImage < images.length - 1 ? currentImage + 1 : 0);
+  };
 
   return (
     <div className="space-y-4">
@@ -136,7 +141,9 @@ export function ProductImageGalleryDark({ images, productName }: ProductImageGal
               key={index}
               onClick={() => setCurrentImage(index)}
               className={`relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-colors bg-dark-800 ${
-                currentImage === index ? "border-white" : "border-dark-600 hover:border-gray-400"
+                currentImage === index
+                  ? "border-white"
+                  : "border-dark-600 hover:border-gray-400"
               }`}
             >
               <Image
@@ -152,28 +159,21 @@ export function ProductImageGalleryDark({ images, productName }: ProductImageGal
       )}
 
       {/* Zoom Modal */}
-      {isZoomed && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl max-h-full">
-            <Image
-              src={images[currentImage] || "/placeholder.svg"}
-              alt={`${productName} - Zoomed`}
-              width={800}
-              height={800}
-              className="max-w-full max-h-full object-contain"
-            />
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsZoomed(false)}
-              className="absolute top-2 right-2 bg-dark-900/80 hover:bg-dark-700 text-white p-2 rounded-full border border-dark-600"
-              aria-label="Close zoom"
-            >
-              <X className="w-4 h-4" />
-            </Button>
+      <Dialog open={isZoomed} onOpenChange={setIsZoomed}>
+        <DialogTitle>{`${productName}`}</DialogTitle>
+        <DialogContent className="max-w-2xl ">
+          <Image
+            src={images[currentImage] || "/placeholder.svg"}
+            alt={`${productName}`}
+            width={800}
+            height={800}
+            className="w-full h-full object-cover aspect-square"
+          />
+          <div className="absolute top-4 inset-x-0 flex items-center justify-center z-40">
+            <h1 className="text-6xl font-bold text-white opacity-90">CLEO</h1>
           </div>
-        </div>
-      )}
+        </DialogContent>
+      </Dialog>
     </div>
-  )
+  );
 }

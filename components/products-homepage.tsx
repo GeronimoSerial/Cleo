@@ -8,15 +8,13 @@ import { getAllProducts, type Product } from "@/lib/directus-api";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const tabs = [
-  { id: "featured", label: "Featured", shortLabel: "★" },
   { id: "all", label: "All", shortLabel: "All" },
+  { id: "featured", label: "Featured", shortLabel: "★" },
   { id: "new", label: "New Arrivals", shortLabel: "New" },
-  { id: "limited", label: "Limited Edition", shortLabel: "Ltd" },
-  { id: "bestsellers", label: "Best Sellers", shortLabel: "Top" },
 ];
 
 export function ProductsHomepage() {
-  const [activeTab, setActiveTab] = useState("featured");
+  const [activeTab, setActiveTab] = useState("all");
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -43,17 +41,13 @@ export function ProductsHomepage() {
     switch (activeTab) {
       case "all":
         return allProducts;
+      case "featured":
+        return allProducts.filter((product) => product.featured);
       case "new":
-        return allProducts.filter((product) => product.isNew);
-      case "limited":
-        return allProducts.filter((product) => product.isLimited);
+        // Get the latest 5 products (products are already sorted by newest first from API)
+        return allProducts.slice(0, 5);
       default:
-        return allProducts.filter((product) => product.name);
-      // case "bestsellers":
-      //   return allProducts.filter((product) => product.isBestSeller);
-      // case "featured":
-      // default:
-      //   return allProducts.filter((product) => product.featured);
+        return allProducts;
     }
   }, [activeTab, allProducts]);
 
@@ -81,7 +75,7 @@ export function ProductsHomepage() {
 
         <div className="bg-transparent p-4 md:p-8 rounded-xl shadow-2xl overflow-hidden">
           <div className="overflow-x-hidden">
-            <Tabs defaultValue="featured" onValueChange={setActiveTab}>
+            <Tabs defaultValue="all" onValueChange={setActiveTab}>
               <TabsList className="bg-transparent p-1 rounded-full border border-zinc-700 flex items-center justify-center md:justify-center space-x-1 overflow-x-auto scrollbar-hide w-full max-w-full">
                 {tabs.map((tab) => (
                   <TabsTrigger
