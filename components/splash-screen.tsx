@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 export function SplashScreen() {
@@ -30,12 +29,13 @@ export function SplashScreen() {
         if (prev >= 100) {
           clearInterval(interval);
           clearInterval(matrixInterval);
-          setTimeout(() => setIsComplete(true), 500); // Delay before hiding splash screen
+          setMatrixText("Streetwear & Rock"); // Set final text
+          setTimeout(() => setIsComplete(true), 1000); // Delay before hiding splash screen
           return 100;
         }
         return prev + 1;
       });
-    }, 30);
+    }, 10);
 
     return () => {
       clearInterval(interval);
@@ -50,18 +50,12 @@ export function SplashScreen() {
         isComplete ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <div className="relative w-48 h-48 mb-8">
-        <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo%20sdfm-gDlxg0zxe6wVV9o5cISteykVa4LQhz.png"
-          alt="SDFM 2520"
-          fill
-          className="object-contain"
-          priority
-        />
+      <div className="flex flex-col items-center mb-2">
+        <h1 className="text-white text-4xl font-bold">Cleo</h1>
       </div>
 
       {/* Matrix-style loading text */}
-      <div className="font-mono text-white mb-4 h-6">{`LOADING_STYLE: ${matrixText}`}</div>
+      <div className="font-mono text-white mb-4 h-6 text-center">{`LOADING_STYLE: ${matrixText}`}</div>
 
       {/* Progress bar container */}
       <div className="w-64 h-1 bg-dark-400 rounded-full overflow-hidden">
