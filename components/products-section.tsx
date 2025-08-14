@@ -12,9 +12,9 @@ const products = [
     price: 149.99,
     originalPrice: 179.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
     isNew: true,
   },
   {
@@ -22,18 +22,18 @@ const products = [
     name: "CLEO Premium Gray Hoodie",
     price: 154.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
   },
   {
     id: 3,
     name: "CLEO Signature Navy Hoodie",
     price: 159.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
   },
   {
     id: 4,
@@ -41,9 +41,9 @@ const products = [
     price: 199.99,
     originalPrice: 249.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
     isLimited: true,
   },
   {
@@ -51,9 +51,9 @@ const products = [
     name: "CLEO Street Rebel Hoodie",
     price: 164.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
     isNew: true,
   },
   {
@@ -61,9 +61,9 @@ const products = [
     name: "CLEO Underground Hoodie",
     price: 174.99,
     image1:
-      "https://i.pinimg.com/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
+      "https://devcms.geroserial.com/assets/736x/92/06/56/920656e03f09691d871e149b5dad8f7f.jpg",
     image2:
-      "https://i.pinimg.com/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
+      "https://devcms.geroserial.com/assets/736x/94/d3/14/94d31436dfc73fcf93058089f69ffd96.jpg",
   },
 ];
 

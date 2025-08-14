@@ -1,3 +1,5 @@
+import { DIRECTUS_URL } from "./config"
+
 // Tipos para Directus
 export interface DirectusImageRelation {
   id: number
@@ -50,7 +52,6 @@ export interface Category {
   count?: number
 }
 
-const DIRECTUS_URL = 'https://devcms.geroserial.com'
 
 // Función para obtener URL de imagen
 function getImageUrl(imageRelation: DirectusImageRelation): string {

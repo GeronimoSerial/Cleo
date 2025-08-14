@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import type { Product } from "@/lib/products-data";
+import type { Product } from "@/lib/directus-api";
 import { MagicCard } from "./magicui/magic-card";
+import { cfImages } from "@/lib/cloudflare-images";
 
 interface ProductCardProps {
   product: Product;
@@ -24,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <Link href={`/products/${product.slug}`}>
             <div className="relative aspect-square overflow-hidden cursor-pointer">
               <Image
-                src={product.images[0]}
+                src={cfImages(product.images[0])}
                 alt={product.name}
                 fill
                 className="object-cover transition-all duration-500 scale-100"

@@ -65,7 +65,7 @@ export default function Home() {
 
               <div className="relative aspect-square bg-dark-600 rounded-lg overflow-hidden order-1 lg:order-2">
                 <img
-                  src="https://i.pinimg.com/736x/8a/8e/7c/8a8e7c8f5d4c3b2a1e9f8d7c6b5a4e3d.jpg"
+                  src="https://devcms.geroserial.com/assets/736x/8a/8e/7c/8a8e7c8f5d4c3b2a1e9f8d7c6b5a4e3d.jpg"
                   alt="CLEO Brand Story"
                   className="w-full h-full object-cover"
                 />

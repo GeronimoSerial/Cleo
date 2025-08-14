@@ -17,7 +17,7 @@ interface ProductPageProps {
 }
 
 export default async function ProductClientPage({ params }: ProductPageProps) {
-  const { segment } = params;
+  const { segment } = await params;
 
   // Try to find a product first
   const product = await getProductBySlug(segment);

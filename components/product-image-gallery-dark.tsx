@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight, ZoomIn, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { cfImages } from "@/lib/cloudflare-images";
 
 interface ProductImageGalleryDarkProps {
   images: string[];
@@ -147,7 +148,7 @@ export function ProductImageGalleryDark({
               }`}
             >
               <Image
-                src={image || "/placeholder.svg"}
+                src={cfImages(image || "/placeholder.svg")}
                 alt={`${productName} thumbnail ${index + 1}`}
                 fill
                 className="object-cover"
@@ -163,7 +164,7 @@ export function ProductImageGalleryDark({
         <DialogTitle>{`${productName}`}</DialogTitle>
         <DialogContent className="max-w-2xl ">
           <Image
-            src={images[currentImage] || "/placeholder.svg"}
+            src={cfImages(images[currentImage] || "/placeholder.svg")}
             alt={`${productName}`}
             width={800}
             height={800}

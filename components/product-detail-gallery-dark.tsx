@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Play } from "lucide-react";
+import { cfImages } from "@/lib/cloudflare-images";
 
 interface ProductDetailGalleryDarkProps {
   productName: string;
@@ -47,7 +48,7 @@ export function ProductDetailGalleryDark({
           >
             <div className="relative aspect-square">
               <Image
-                src={image.src || "/placeholder.svg"}
+                src={cfImages(image.src || "/placeholder.svg")}
                 alt={`${productName} - ${image.title}`}
                 fill
                 className="object-cover overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-gray-500 group"
