@@ -67,7 +67,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </h3>
             </Link>
             <div className="flex items-center space-x-2">
-              <span className="text-xl md:text-2xl font-bold text-white">
+              <span className="text-xl md:text-lg font-bold text-white">
                 ${product.price.toFixed(2)}
               </span>
               {product.originalPrice && (
@@ -81,7 +81,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </p>
             <Link href={`/products/${product.slug}`} className="block">
               <Button
-                className="w-full text-sm md:text-base py-2 md:py-3 bg-transparent border-2 border-gray-600 hover:border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold tracking-wide disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full text-sm md:text-base py-2 md:py-3 bg-transparent border-2 border-gray-600 hover:border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold tracking-wide disabled:opacity-50 md:cursor-pointer"
                 variant="outline"
                 disabled={!product.inStock}
               >
