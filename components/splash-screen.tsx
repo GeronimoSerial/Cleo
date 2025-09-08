@@ -1,72 +1,105 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export function SplashScreen() {
-  const [progress, setProgress] = useState(0);
-  const [matrixText, setMatrixText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%";
-    let interval: NodeJS.Timeout;
+    let animationFrame: number;
+    let lastMatrixUpdate = 0;
+    let progressValue = 0;
 
-    // Matrix text effect
-    const matrixInterval = setInterval(() => {
-      const randomText = Array(8)
-        .fill(0)
-        .map(() =>
-          characters.charAt(Math.floor(Math.random() * characters.length))
-        )
-        .join("");
-      setMatrixText(randomText);
-    }, 50);
+    // Configuración base
+    ctx.font = "16px monospace";
+    ctx.fillStyle = "#fff";
+    ctx.textAlign = "left";
 
-    // Progress bar animation
-    interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          clearInterval(matrixInterval);
-          setMatrixText("Streetwear & Rock"); // Set final text
-          setTimeout(() => setIsComplete(true), 1000); // Delay before hiding splash screen
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 10);
+    const fixedText = "LOADING_STYLE:";
+    const baseX = 10;
+    const baseY = 25;
+    ctx.fillText(fixedText, baseX, baseY);
 
-    return () => {
-      clearInterval(interval);
-      clearInterval(matrixInterval);
+    const fixedWidth = ctx.measureText(fixedText).width;
+
+    const draw = (time: number) => {
+      // Limpiar parte inferior (barra + porcentaje) en cada frame
+      ctx.clearRect(0, 40, canvas.width, canvas.height - 40);
+
+      // Avanzar progreso
+      progressValue += 0.6; // velocidad (100 ≈ 3.3s)
+      if (progressValue >= 100) {
+        progressValue = 100;
+
+        // Borrar texto dinámico y escribir final
+        ctx.clearRect(baseX + fixedWidth + 5, 0, canvas.width, 40);
+        ctx.fillText("Streetwear & Rock", baseX + fixedWidth + 5, baseY);
+
+        // Barra final
+        ctx.fillStyle = "#666";
+        ctx.fillRect(baseX, 50, 256, 8);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(baseX, 50, 256, 8);
+
+        // Porcentaje final
+        ctx.fillStyle = "#fff";
+        ctx.fillText("100%", baseX, 80);
+
+        setTimeout(() => setIsComplete(true), 1000);
+        return;
+      }
+
+      // Texto dinámico (cada 200ms)
+      if (time - lastMatrixUpdate > 200) {
+        const randomText = Array(8)
+          .fill(0)
+          .map(() =>
+            characters.charAt(Math.floor(Math.random() * characters.length)),
+          )
+          .join("");
+
+        ctx.clearRect(baseX + fixedWidth + 5, 0, canvas.width, 40);
+        ctx.fillStyle = "#fff";
+        ctx.fillText(randomText, baseX + fixedWidth + 5, baseY);
+
+        lastMatrixUpdate = time;
+      }
+
+      // Dibujar barra progreso
+      ctx.fillStyle = "#666"; // fondo barra
+      ctx.fillRect(baseX, 50, 256, 8);
+      ctx.fillStyle = "#fff"; // progreso
+      ctx.fillRect(baseX, 50, (progressValue / 100) * 256, 8);
+
+      // Porcentaje
+      ctx.fillStyle = "#fff";
+      ctx.fillText(`${Math.floor(progressValue)}%`, baseX, 80);
+
+      animationFrame = requestAnimationFrame(draw);
     };
+
+    animationFrame = requestAnimationFrame(draw);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   return (
     <div
       className={cn(
         "fixed inset-0 z-60 flex flex-col items-center justify-center bg-dark-900 transition-opacity duration-500",
-        isComplete ? "opacity-0 pointer-events-none" : "opacity-100"
+        isComplete ? "opacity-0 pointer-events-none" : "opacity-100",
       )}
     >
-      <div className="flex flex-col items-center mb-2">
-        <h1 className="text-white text-4xl font-bold">Cleo</h1>
-      </div>
-
-      {/* Matrix-style loading text */}
-      <div className="font-mono text-white mb-4 h-6 text-center">{`LOADING_STYLE: ${matrixText}`}</div>
-
-      {/* Progress bar container */}
-      <div className="w-64 h-1 bg-dark-400 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-white transition-all duration-100 ease-out"
-          style={{ width: `${progress}%` }}
-        />
-      </div>
-
-      {/* Progress percentage */}
-      <div className="mt-2 font-mono text-sm text-white">{`${progress}%`}</div>
+      <h1 className="text-white text-4xl font-bold mb-4">Resolv</h1>
+      <canvas ref={canvasRef} width={400} height={120} />
     </div>
   );
 }

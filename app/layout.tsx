@@ -4,13 +4,13 @@ import { Inter } from "next/font/google";
 import type React from "react";
 import { SplashScreen } from "@/components/splash-screen";
 import { SiteHeader } from "@/components/site-header";
-import { CustomCursor } from "@/components/custom-cursor";
 import { GlobalRockBackground } from "@/components/global-rock-background";
+import BottomNavigation from "@/components/layout/bottom-navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CLEO - Streetwear & Rock",
+  title: "Resolv - Streetwear & Rock",
   description:
     "Where street culture meets rock rebellion. Premium streetwear with attitude.",
   generator: "v0.dev",
@@ -34,15 +34,15 @@ export default function RootLayout({
           <footer className="w-full py-4 md:py-6 px-4 bg-black/40 backdrop-blur-sm text-gray-400">
             <div className="container mx-auto text-center">
               <p className="text-sm md:text-base">
-                &copy; 2025 CLEO. Streetwear & Rock.
+                &copy; 2025 Resolv. Streetwear & Rock.
               </p>
-              {/* <p className="text-xs md:text-sm mt-1 opacity-75">
+              <p className="text-xs md:text-sm mt-1 opacity-75">
                 made by geroserial.com
-              </p> */}
+              </p>
             </div>
           </footer>
         </div>
-        <CustomCursor />
+        <BottomNavigation />
       </body>
     </html>
   );

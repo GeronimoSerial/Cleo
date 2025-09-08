@@ -75,7 +75,7 @@ export function GlobalRockBackground() {
           whiteSpace: "nowrap",
         }}
       >
-        CLEO
+        RESOLV
       </div>
     </div>
   );

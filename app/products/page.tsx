@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { ProductCard } from "@/components/dynamic-product-card";
-import { RockSoundWave } from "@/components/rock-sound-wave";
+import { ProductCard } from "@/components/products/ui/dynamic-product-card";
+import { RockSoundWave } from "@/components/ui/rock-sound-wave";
 import { Card } from "@/components/ui/card";
 import { getAllProducts, getAllCategories } from "@/lib/directus-api";
 import Image from "next/image";
@@ -42,7 +42,7 @@ export default async function ProductsPage() {
             </Link>
             <div className="text-center">
               <h1 className="text-2xl md:text-3xl font-bold text-gray-100">
-                CLEO
+                RESOLV
               </h1>
               <p className="text-sm md:text-base text-gray-400">
                 Streetwear & ROCK

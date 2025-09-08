@@ -123,7 +123,7 @@ export function HamburgerMenu() {
         <div className="relative z-10 p-6 border-b border-dark-600">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-white">CLEO</h2>
+              <h2 className="text-2xl font-bold text-white">RESOLV</h2>
               <p className="text-sm text-gray-400">Streetwear & ROCK</p>
             </div>
             <Button
@@ -207,7 +207,7 @@ export function HamburgerMenu() {
         {/* Menu Footer */}
         <div className="relative z-10 p-6 border-t border-dark-600">
           <div className="text-center">
-            <p className="text-xs text-gray-500 mb-2">© 2023 CLEO</p>
+            <p className="text-xs text-gray-500 mb-2">© 2023 RESOLV</p>
             <p className="text-xs text-gray-600">Where Street Meets Rock</p>
           </div>
           {/* Sound wave visualization */}

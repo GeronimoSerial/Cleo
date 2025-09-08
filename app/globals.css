@@ -1,20 +1,20 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin 'tailwindcss-animate';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Dark theme colors - unified */
-  --color-dark-100: #2a2a2a;
-  --color-dark-200: #252525;
-  --color-dark-300: #202020;
-  --color-dark-400: #1a1a1a;
-  --color-dark-500: #151515;
-  --color-dark-600: #101010;
-  --color-dark-900: #0a0a0a;
+    /* Dark theme colors - unified */
+    --color-dark-100: #2a2a2a;
+    --color-dark-200: #252525;
+    --color-dark-300: #202020;
+    --color-dark-400: #1a1a1a;
+    --color-dark-500: #151515;
+    --color-dark-600: #101010;
+    --color-dark-900: #0a0a0a;
 
-  /* test */
-/* Dark Rock Urban Theme */
+    /* test */
+    /* Dark Rock Urban Theme */
     --background: 220 13% 9%;
     --foreground: 0 0% 95%;
 
@@ -56,147 +56,183 @@
     --rock-shadow: 220 13% 5%;
 
     /* Gradients */
-    --gradient-rock: linear-gradient(135deg, hsl(var(--rock-black)), hsl(var(--rock-dark)));
-    --gradient-metal: linear-gradient(90deg, hsl(var(--rock-steel) / 0.1), hsl(var(--rock-steel) / 0.3), hsl(var(--rock-steel) / 0.1));
-    --gradient-fire: linear-gradient(135deg, hsl(var(--rock-red)), hsl(var(--accent)));
+    --gradient-rock: linear-gradient(
+        135deg,
+        hsl(var(--rock-black)),
+        hsl(var(--rock-dark))
+    );
+    --gradient-metal: linear-gradient(
+        90deg,
+        hsl(var(--rock-steel) / 0.1),
+        hsl(var(--rock-steel) / 0.3),
+        hsl(var(--rock-steel) / 0.1)
+    );
+    --gradient-fire: linear-gradient(
+        135deg,
+        hsl(var(--rock-red)),
+        hsl(var(--accent))
+    );
 
     /* Shadows */
     --shadow-rock: 0 10px 30px hsl(var(--rock-shadow) / 0.5);
     --shadow-glow-red: 0 0 20px hsl(var(--rock-red) / 0.3);
     --shadow-intense: 0 20px 40px hsl(var(--rock-shadow) / 0.8);
-  /*end test  */
+    /*end test  */
 
-  /* Base design system - HSL values */
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 84% 4.9%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+    /* Base design system - HSL values */
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-  /* Border radius */
-  --radius: 0.5rem;
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
+    /* Border radius */
+    --radius: 0.5rem;
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
 
-  /* Animation durations */
-  --animate-duration-75: 75ms;
-  --animate-duration-100: 100ms;
-  --animate-duration-150: 150ms;
-  --animate-duration-200: 200ms;
-  --animate-duration-300: 300ms;
-  --animate-duration-500: 500ms;
-  --animate-duration-700: 700ms;
-  --animate-duration-1000: 1000ms;
+    /* Animation durations */
+    --animate-duration-75: 75ms;
+    --animate-duration-100: 100ms;
+    --animate-duration-150: 150ms;
+    --animate-duration-200: 200ms;
+    --animate-duration-300: 300ms;
+    --animate-duration-500: 500ms;
+    --animate-duration-700: 700ms;
+    --animate-duration-1000: 1000ms;
 
-  /* Scale values */
-  --scale-0: 0;
-  --scale-50: 0.5;
-  --scale-75: 0.75;
-  --scale-90: 0.9;
-  --scale-95: 0.95;
-  --scale-100: 1;
-  --scale-105: 1.05;
-  --scale-110: 1.1;
-  --scale-125: 1.25;
-  --scale-150: 1.5;
+    /* Scale values */
+    --scale-0: 0;
+    --scale-50: 0.5;
+    --scale-75: 0.75;
+    --scale-90: 0.9;
+    --scale-95: 0.95;
+    --scale-100: 1;
+    --scale-105: 1.05;
+    --scale-110: 1.1;
+    --scale-125: 1.25;
+    --scale-150: 1.5;
 
-  /* Keyframes */
-  @keyframes matrix-fade {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
-  }
+    /* Keyframes */
+    @keyframes matrix-fade {
+        0%,
+        100% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
 
-  @keyframes click {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(0.95); }
-  }
+    @keyframes click {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+    }
 
-  @keyframes glitch-flicker {
-    0%, 100% {
-      opacity: 0;
-      transform: translateX(0) skewX(0deg);
+    @keyframes glitch-flicker {
+        0%,
+        100% {
+            opacity: 0;
+            transform: translateX(0) skewX(0deg);
+        }
+        5% {
+            opacity: 0.4;
+            transform: translateX(3px) skewX(2deg);
+        }
+        10% {
+            opacity: 0;
+            transform: translateX(-3px) skewX(-2deg);
+        }
+        15% {
+            opacity: 0.6;
+            transform: translateX(2px) skewX(1deg);
+        }
+        20% {
+            opacity: 0;
+            transform: translateX(-2px) skewX(-1deg);
+        }
+        25% {
+            opacity: 0.3;
+            transform: translateX(1px) skewX(3deg);
+        }
+        30% {
+            opacity: 0;
+        }
     }
-    5% {
-      opacity: 0.4;
-      transform: translateX(3px) skewX(2deg);
-    }
-    10% {
-      opacity: 0;
-      transform: translateX(-3px) skewX(-2deg);
-    }
-    15% {
-      opacity: 0.6;
-      transform: translateX(2px) skewX(1deg);
-    }
-    20% {
-      opacity: 0;
-      transform: translateX(-2px) skewX(-1deg);
-    }
-    25% {
-      opacity: 0.3;
-      transform: translateX(1px) skewX(3deg);
-    }
-    30% {
-      opacity: 0;
-    }
-  }
 
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
 }
 
 /* Tailwind v4 compatibility */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
 }
 
 /* Base body styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(var(--background-end-rgb))
-  ) rgb(var(--background-start-rgb));
-  overflow-x: hidden;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
 }

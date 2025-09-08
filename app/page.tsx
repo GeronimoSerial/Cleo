@@ -1,12 +1,19 @@
-import { AutoSliderBanner } from "@/components/auto-slider-banner";
-import { ProductsHomepage } from "@/components/products-homepage";
+import { DropSection } from "@/components/drops/drops-section";
+import { AutoSliderBanner } from "@/components/products/homepage/auto-slider-banner";
+import { ProductsHomepage } from "@/components/products/homepage/products-homepage";
+import { ProductsTextReveal } from "@/components/products/reveal-products";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between relative">
       {/* Full-screen Auto-sliding Banner */}
       <AutoSliderBanner />
+      <div className="text-center">
+        <ProductsTextReveal />
+      </div>
+      {/* Drops Section */}
 
+      <DropSection />
       {/* Products Homepage with Carousels */}
       <ProductsHomepage />
 
@@ -16,7 +23,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="mb-4 md:mb-8 text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100 relative">
-                The CLEO Story
+                The RESOLV Story
                 <div className="absolute -bottom-1 md:-bottom-2 left-1/2 transform -translate-x-1/2 w-16 md:w-20 h-0.5 md:h-1 bg-linear-to-r from-transparent via-white to-transparent opacity-50"></div>
               </h2>
             </div>
@@ -25,8 +32,8 @@ export default function Home() {
               <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
                   Born from the fusion of street culture and rock rebellion.
-                  CLEO represents the intersection where urban streetwear meets
-                  the raw energy of rock music.
+                  RESOLV represents the intersection where urban streetwear
+                  meets the raw energy of rock music.
                 </p>
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed">
                   Each piece embodies the spirit of both worlds—comfortable

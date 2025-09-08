@@ -1,7 +1,7 @@
 "use client";
 
-import { ProductCard } from "./dynamic-product-card";
-import { RockSoundWave } from "./rock-sound-wave";
+import { ProductCard } from "./products/ui/dynamic-product-card";
+import { RockSoundWave } from "./ui/rock-sound-wave";
 import type { Product } from "@/lib/directus-api";
 
 interface RelatedProductsDarkProps {

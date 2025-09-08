@@ -63,7 +63,9 @@ export function SiteHeader() {
               <Logo />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl md:text-2xl font-bold text-white">CLEO</h1>
+              <h1 className="text-xl md:text-2xl font-bold text-white">
+                RESOLV
+              </h1>
               <p className="text-xs md:text-sm text-gray-400">
                 STREETWEAR & ROCK
               </p>

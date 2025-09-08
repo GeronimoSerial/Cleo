@@ -2,9 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ProductImageGalleryDark } from "@/components/product-image-gallery-dark";
-import { ProductSelectorDark } from "@/components/product-selector-dark";
-import { ProductDetailGalleryDark } from "@/components/product-detail-gallery-dark";
+import { ProductImageGalleryDark } from "@/components/products/details/product-image-gallery-dark";
+import { ProductDetailGalleryDark } from "@/components/products/details/product-detail-gallery-dark";
 import { RelatedProductsDark } from "@/components/related-products-dark";
 import { StickyWhatsAppButtonDark } from "@/components/sticky-whatsapp-button-dark";
 
@@ -85,7 +84,6 @@ export default async function ProductClientPage({ params }: ProductPageProps) {
 
               {/* Product Info */}
               <div className="order-2">
-                <ProductSelectorDark product={product} />
               </div>
             </div>
           </div>
