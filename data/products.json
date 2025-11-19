@@ -1,0 +1,632 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "nombre": "Oversized Hoodie Black",
+      "precio": 89.99,
+      "descuento": 0,
+      "descripcion": "Premium oversized hoodie con diseño minimalista. Confeccionado en algodón 100% de alta calidad con acabado suave. Perfecto para un look urbano y cómodo.",
+      "categoria": "hoodies",
+      "nuevo": true,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "colores": ["black", "white", "gray"],
+      "stock": true,
+      "slug": "oversized-hoodie-black",
+      "imagenes": [
+        {
+          "id": 1,
+          "Productos_id": 1,
+          "directus_files_id": "hoodie-black-1.jpg"
+        },
+        {
+          "id": 2,
+          "Productos_id": 1,
+          "directus_files_id": "hoodie-black-2.jpg"
+        },
+        {
+          "id": 3,
+          "Productos_id": 1,
+          "directus_files_id": "hoodie-black-3.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": true,
+      "destacado": true
+    },
+    {
+      "id": 2,
+      "nombre": "Cargo Pants Tactical",
+      "precio": 129.99,
+      "descuento": 15,
+      "descripcion": "Pantalones cargo de estilo táctico con múltiples bolsillos funcionales. Fabricados con material resistente y duradero. Ideal para el estilo streetwear urbano.",
+      "categoria": "pants",
+      "nuevo": true,
+      "sizes": ["28", "30", "32", "34", "36"],
+      "colores": ["black", "olive", "khaki"],
+      "stock": true,
+      "slug": "cargo-pants-tactical",
+      "imagenes": [
+        {
+          "id": 4,
+          "Productos_id": 2,
+          "directus_files_id": "cargo-pants-1.jpg"
+        },
+        {
+          "id": 5,
+          "Productos_id": 2,
+          "directus_files_id": "cargo-pants-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 3,
+      "nombre": "Graphic Tee Skull",
+      "precio": 45.99,
+      "descuento": 0,
+      "descripcion": "Camiseta de algodón orgánico con estampado gráfico exclusivo. Diseño único con calavera estilizada. Corte regular y acabado premium.",
+      "categoria": "tees",
+      "nuevo": false,
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "colores": ["black", "white"],
+      "stock": true,
+      "slug": "graphic-tee-skull",
+      "imagenes": [
+        {
+          "id": 6,
+          "Productos_id": 3,
+          "directus_files_id": "tee-skull-1.jpg"
+        },
+        {
+          "id": 7,
+          "Productos_id": 3,
+          "directus_files_id": "tee-skull-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 4,
+      "nombre": "Limited Edition Bomber Jacket",
+      "precio": 249.99,
+      "descuento": 0,
+      "descripcion": "Bomber jacket de edición limitada con bordados exclusivos. Solo 100 unidades disponibles. Material premium con forro acolchado y cierre de cremallera YKK.",
+      "categoria": "jackets",
+      "nuevo": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "navy"],
+      "stock": true,
+      "slug": "limited-edition-bomber-jacket",
+      "imagenes": [
+        {
+          "id": 8,
+          "Productos_id": 4,
+          "directus_files_id": "bomber-jacket-1.jpg"
+        },
+        {
+          "id": 9,
+          "Productos_id": 4,
+          "directus_files_id": "bomber-jacket-2.jpg"
+        },
+        {
+          "id": 10,
+          "Productos_id": 4,
+          "directus_files_id": "bomber-jacket-3.jpg"
+        },
+        {
+          "id": 11,
+          "Productos_id": 4,
+          "directus_files_id": "bomber-jacket-4.jpg"
+        }
+      ],
+      "is_limited": true,
+      "is_best_seller": false,
+      "featured": true,
+      "destacado": true
+    },
+    {
+      "id": 5,
+      "nombre": "Minimalist Cap",
+      "precio": 35.99,
+      "descuento": 20,
+      "descripcion": "Gorra ajustable de diseño minimalista. Bordado tonal en la parte frontal. Perfecta para completar cualquier outfit urbano.",
+      "categoria": "accessories",
+      "nuevo": false,
+      "sizes": ["ONE SIZE"],
+      "colores": ["black", "white", "beige", "olive"],
+      "stock": true,
+      "slug": "minimalist-cap",
+      "imagenes": [
+        {
+          "id": 12,
+          "Productos_id": 5,
+          "directus_files_id": "cap-1.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 6,
+      "nombre": "Streetwear Sneakers",
+      "precio": 159.99,
+      "descuento": 10,
+      "descripcion": "Zapatillas urbanas con diseño contemporáneo. Suela de goma duradera y upper de materiales mixtos. Comodidad y estilo para todo el día.",
+      "categoria": "footwear",
+      "nuevo": true,
+      "sizes": ["38", "39", "40", "41", "42", "43", "44", "45"],
+      "colores": ["black", "white", "gray"],
+      "stock": true,
+      "slug": "streetwear-sneakers",
+      "imagenes": [
+        {
+          "id": 13,
+          "Productos_id": 6,
+          "directus_files_id": "sneakers-1.jpg"
+        },
+        {
+          "id": 14,
+          "Productos_id": 6,
+          "directus_files_id": "sneakers-2.jpg"
+        },
+        {
+          "id": 15,
+          "Productos_id": 6,
+          "directus_files_id": "sneakers-3.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": true,
+      "destacado": false
+    },
+    {
+      "id": 7,
+      "nombre": "Crossbody Bag Urban",
+      "precio": 79.99,
+      "descuento": 0,
+      "descripcion": "Bolso crossbody funcional con múltiples compartimentos. Material resistente al agua con cremalleras de alta calidad. Perfecto para el día a día.",
+      "categoria": "accessories",
+      "nuevo": false,
+      "sizes": ["ONE SIZE"],
+      "colores": ["black", "gray", "khaki"],
+      "stock": true,
+      "slug": "crossbody-bag-urban",
+      "imagenes": [
+        {
+          "id": 16,
+          "Productos_id": 7,
+          "directus_files_id": "bag-1.jpg"
+        },
+        {
+          "id": 17,
+          "Productos_id": 7,
+          "directus_files_id": "bag-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 8,
+      "nombre": "Denim Jacket Vintage",
+      "precio": 139.99,
+      "descuento": 0,
+      "descripcion": "Chaqueta de mezclilla con acabado vintage wash. Corte oversized y detalles desgastados. Básico atemporal para tu armario.",
+      "categoria": "jackets",
+      "nuevo": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["blue", "black"],
+      "stock": true,
+      "slug": "denim-jacket-vintage",
+      "imagenes": [
+        {
+          "id": 18,
+          "Productos_id": 8,
+          "directus_files_id": "denim-jacket-1.jpg"
+        },
+        {
+          "id": 19,
+          "Productos_id": 8,
+          "directus_files_id": "denim-jacket-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 9,
+      "nombre": "Tech Pants Reflective",
+      "precio": 169.99,
+      "descuento": 0,
+      "descripcion": "Pantalones técnicos con detalles reflectantes. Material resistente al viento y al agua. Tecnología de movilidad para máximo confort.",
+      "categoria": "pants",
+      "nuevo": true,
+      "sizes": ["28", "30", "32", "34", "36"],
+      "colores": ["black", "gray"],
+      "stock": true,
+      "slug": "tech-pants-reflective",
+      "imagenes": [
+        {
+          "id": 20,
+          "Productos_id": 9,
+          "directus_files_id": "tech-pants-1.jpg"
+        },
+        {
+          "id": 21,
+          "Productos_id": 9,
+          "directus_files_id": "tech-pants-2.jpg"
+        },
+        {
+          "id": 22,
+          "Productos_id": 9,
+          "directus_files_id": "tech-pants-3.jpg"
+        }
+      ],
+      "is_limited": true,
+      "is_best_seller": false,
+      "featured": true,
+      "destacado": true
+    },
+    {
+      "id": 10,
+      "nombre": "Essential White Tee",
+      "precio": 39.99,
+      "descuento": 0,
+      "descripcion": "Camiseta básica esencial en blanco puro. Algodón premium de 220gsm. Corte clásico que nunca pasa de moda.",
+      "categoria": "tees",
+      "nuevo": false,
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "colores": ["white", "black", "gray"],
+      "stock": true,
+      "slug": "essential-white-tee",
+      "imagenes": [
+        {
+          "id": 23,
+          "Productos_id": 10,
+          "directus_files_id": "white-tee-1.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 11,
+      "nombre": "Zip Hoodie Premium",
+      "precio": 109.99,
+      "descuento": 15,
+      "descripcion": "Sudadera con cremallera completa y capucha. Interior afelpado súper suave. Bolsillos laterales con cremallera para mayor seguridad.",
+      "categoria": "hoodies",
+      "nuevo": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "gray", "navy"],
+      "stock": true,
+      "slug": "zip-hoodie-premium",
+      "imagenes": [
+        {
+          "id": 24,
+          "Productos_id": 11,
+          "directus_files_id": "zip-hoodie-1.jpg"
+        },
+        {
+          "id": 25,
+          "Productos_id": 11,
+          "directus_files_id": "zip-hoodie-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 12,
+      "nombre": "Leather Belt Classic",
+      "precio": 59.99,
+      "descuento": 0,
+      "descripcion": "Cinturón de cuero genuino con hebilla metálica. Diseño clásico versátil. Disponible en múltiples tallas para ajuste perfecto.",
+      "categoria": "accessories",
+      "nuevo": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "brown"],
+      "stock": true,
+      "slug": "leather-belt-classic",
+      "imagenes": [
+        {
+          "id": 26,
+          "Productos_id": 12,
+          "directus_files_id": "belt-1.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 13,
+      "nombre": "Winter Parka Limited",
+      "precio": 299.99,
+      "descuento": 0,
+      "descripcion": "Parka de invierno de edición limitada. Aislamiento térmico de alta calidad con relleno de plumas. Resistente al agua y al viento. Solo 50 unidades.",
+      "categoria": "jackets",
+      "nuevo": true,
+      "sizes": ["M", "L", "XL"],
+      "colores": ["black", "olive"],
+      "stock": true,
+      "slug": "winter-parka-limited",
+      "imagenes": [
+        {
+          "id": 27,
+          "Productos_id": 13,
+          "directus_files_id": "parka-1.jpg"
+        },
+        {
+          "id": 28,
+          "Productos_id": 13,
+          "directus_files_id": "parka-2.jpg"
+        },
+        {
+          "id": 29,
+          "Productos_id": 13,
+          "directus_files_id": "parka-3.jpg"
+        }
+      ],
+      "is_limited": true,
+      "is_best_seller": false,
+      "featured": true,
+      "destacado": true
+    },
+    {
+      "id": 14,
+      "nombre": "Slim Fit Jeans",
+      "precio": 89.99,
+      "descuento": 25,
+      "descripcion": "Jeans de corte slim fit en denim elástico. Comodidad y estilo en un solo producto. Lavado oscuro versátil.",
+      "categoria": "pants",
+      "nuevo": false,
+      "sizes": ["28", "30", "32", "34", "36", "38"],
+      "colores": ["blue", "black"],
+      "stock": true,
+      "slug": "slim-fit-jeans",
+      "imagenes": [
+        {
+          "id": 30,
+          "Productos_id": 14,
+          "directus_files_id": "jeans-1.jpg"
+        },
+        {
+          "id": 31,
+          "Productos_id": 14,
+          "directus_files_id": "jeans-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 15,
+      "nombre": "Graphic Long Sleeve",
+      "precio": 55.99,
+      "descuento": 0,
+      "descripcion": "Camiseta manga larga con estampado gráfico frontal y trasero. Algodón de 180gsm. Diseño exclusivo de la colección.",
+      "categoria": "tees",
+      "nuevo": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "white", "gray"],
+      "stock": true,
+      "slug": "graphic-long-sleeve",
+      "imagenes": [
+        {
+          "id": 32,
+          "Productos_id": 15,
+          "directus_files_id": "long-sleeve-1.jpg"
+        },
+        {
+          "id": 33,
+          "Productos_id": 15,
+          "directus_files_id": "long-sleeve-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 16,
+      "nombre": "High-Top Boots",
+      "precio": 199.99,
+      "descuento": 0,
+      "descripcion": "Botas de caña alta con estilo militar. Suela gruesa de goma con tracción superior. Material resistente y duradero.",
+      "categoria": "footwear",
+      "nuevo": true,
+      "sizes": ["39", "40", "41", "42", "43", "44"],
+      "colores": ["black", "brown"],
+      "stock": true,
+      "slug": "high-top-boots",
+      "imagenes": [
+        {
+          "id": 34,
+          "Productos_id": 16,
+          "directus_files_id": "boots-1.jpg"
+        },
+        {
+          "id": 35,
+          "Productos_id": 16,
+          "directus_files_id": "boots-2.jpg"
+        },
+        {
+          "id": 36,
+          "Productos_id": 16,
+          "directus_files_id": "boots-3.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": true,
+      "destacado": false
+    },
+    {
+      "id": 17,
+      "nombre": "Bucket Hat Reversible",
+      "precio": 42.99,
+      "descuento": 0,
+      "descripcion": "Sombrero bucket reversible con dos diseños en uno. Material ligero y transpirable. Perfecto para el verano urbano.",
+      "categoria": "accessories",
+      "nuevo": false,
+      "sizes": ["ONE SIZE"],
+      "colores": ["black", "beige", "olive"],
+      "stock": true,
+      "slug": "bucket-hat-reversible",
+      "imagenes": [
+        {
+          "id": 37,
+          "Productos_id": 17,
+          "directus_files_id": "bucket-hat-1.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 18,
+      "nombre": "Crewneck Sweatshirt",
+      "precio": 74.99,
+      "descuento": 10,
+      "descripcion": "Sudadera clásica de cuello redondo. Interior afelpado para máxima comodidad. Fit regular y versátil.",
+      "categoria": "hoodies",
+      "nuevo": false,
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "colores": ["black", "white", "gray", "navy"],
+      "stock": true,
+      "slug": "crewneck-sweatshirt",
+      "imagenes": [
+        {
+          "id": 38,
+          "Productos_id": 18,
+          "directus_files_id": "crewneck-1.jpg"
+        },
+        {
+          "id": 39,
+          "Productos_id": 18,
+          "directus_files_id": "crewneck-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 19,
+      "nombre": "Windbreaker Jacket",
+      "precio": 119.99,
+      "descuento": 0,
+      "descripcion": "Chaqueta cortavientos ligera y funcional. Material resistente al agua con capucha ajustable. Ideal para días ventosos.",
+      "categoria": "jackets",
+      "nuevo": true,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "navy", "red"],
+      "stock": true,
+      "slug": "windbreaker-jacket",
+      "imagenes": [
+        {
+          "id": 40,
+          "Productos_id": 19,
+          "directus_files_id": "windbreaker-1.jpg"
+        },
+        {
+          "id": 41,
+          "Productos_id": 19,
+          "directus_files_id": "windbreaker-2.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": false,
+      "featured": false,
+      "destacado": false
+    },
+    {
+      "id": 20,
+      "nombre": "Performance Shorts",
+      "precio": 64.99,
+      "descuento": 15,
+      "descripcion": "Shorts deportivos de alto rendimiento. Tejido técnico de secado rápido con bolsillos con cierre. Perfecto para entrenar o uso casual.",
+      "categoria": "pants",
+      "nuevo": false,
+      "sizes": ["S", "M", "L", "XL"],
+      "colores": ["black", "gray", "navy"],
+      "stock": true,
+      "slug": "performance-shorts",
+      "imagenes": [
+        {
+          "id": 42,
+          "Productos_id": 20,
+          "directus_files_id": "shorts-1.jpg"
+        }
+      ],
+      "is_limited": false,
+      "is_best_seller": true,
+      "featured": false,
+      "destacado": false
+    }
+  ],
+  "categories": [
+    {
+      "slug": "hoodies",
+      "name": "Hoodies",
+      "description": "Sudaderas con capucha de alta calidad para el estilo urbano",
+      "image": "category-hoodies.jpg"
+    },
+    {
+      "slug": "tees",
+      "name": "Camisetas",
+      "description": "Colección de camisetas con diseños únicos y básicos esenciales",
+      "image": "category-tees.jpg"
+    },
+    {
+      "slug": "pants",
+      "name": "Pantalones",
+      "description": "Pantalones para todos los estilos: cargo, técnicos, jeans y más",
+      "image": "category-pants.jpg"
+    },
+    {
+      "slug": "jackets",
+      "name": "Chaquetas",
+      "description": "Chaquetas y abrigos para cada temporada",
+      "image": "category-jackets.jpg"
+    },
+    {
+      "slug": "footwear",
+      "name": "Calzado",
+      "description": "Sneakers y botas para completar tu look",
+      "image": "category-footwear.jpg"
+    },
+    {
+      "slug": "accessories",
+      "name": "Accesorios",
+      "description": "Complementos esenciales: gorras, bolsos, cinturones y más",
+      "image": "category-accessories.jpg"
+    }
+  ]
+}
