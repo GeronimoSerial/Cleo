@@ -1,0 +1,176 @@
+📦 Cleo (E-commerce Platform)
+│
+├── 📱 app/                          [Next.js App Router - ROUTING ONLY]
+│   ├── layout.tsx
+│   ├── page.tsx                     Homepage
+│   ├── globals.css
+│   ├── products/
+│   │   ├── [segment]/
+│   │   │   └── page.tsx            Dynamic product/category pages
+│   │   ├── page.tsx                 All products page
+│   │   └── not-found.tsx
+│   └── drop/                        Drop pages
+│
+├── 🎯 src/                          [NEW - Screaming Architecture]
+│   │
+│   ├── 🚀 features/                 [BUSINESS FEATURES - What the app DOES]
+│   │   │
+│   │   ├── 🧭 navigation/           Site Navigation
+│   │   │   ├── 📖 README.md
+│   │   │   ├── 📤 index.ts          Public API (barrel export)
+│   │   │   └── components/
+│   │   │       ├── site-header.tsx
+│   │   │       ├── logo.tsx
+│   │   │       ├── hamburger-menu.tsx
+│   │   │       └── sticky-whatsapp-button-dark.tsx
+│   │   │
+│   │   ├── 🏪 catalog/              Product Discovery
+│   │   │   ├── 📖 README.md
+│   │   │   ├── 📤 index.ts
+│   │   │   └── components/
+│   │   │       └── category-hero.tsx
+│   │   │
+│   │   ├── 📦 product/              Product Details
+│   │   │   ├── 📖 README.md
+│   │   │   ├── 📤 index.ts
+│   │   │   └── components/
+│   │   │       ├── product-carousel.tsx
+│   │   │       ├── related-products-dark.tsx
+│   │   │       ├── reveal-products.tsx
+│   │   │       ├── details/
+│   │   │       ├── homepage/
+│   │   │       └── ui/
+│   │   │
+│   │   ├── 🛒 cart/                 Shopping Cart
+│   │   │   ├── 📤 index.ts
+│   │   │   └── components/
+│   │   │       └── cart-icon.tsx
+│   │   │
+│   │   └── 🚀 drops/                Product Launches
+│   │       ├── 📤 index.ts
+│   │       └── components/
+│   │
+│   ├── 🔧 core/                     [CORE BUSINESS LOGIC]
+│   │   ├── api/                     External API Clients
+│   │   │   ├── 📤 index.ts
+│   │   │   ├── directus.ts          Directus CMS API
+│   │   │   ├── products.ts          Product API wrapper
+│   │   │   └── cloudflare-images.ts Image optimization
+│   │   │
+│   │   ├── types/                   Domain Types
+│   │   │   └── (Product, Category, etc.)
+│   │   │
+│   │   └── config/                  Configuration
+│   │       └── index.ts
+│   │
+│   └── 🤝 shared/                   [SHARED ACROSS FEATURES]
+│       ├── ui/                      UI Primitives
+│       │   ├── 📤 index.ts
+│       │   ├── ui/                  shadcn/ui components
+│       │   │   ├── button.tsx
+│       │   │   ├── card.tsx
+│       │   │   └── ...
+│       │   └── magicui/             Magic UI components
+│       │       ├── magic-card.tsx
+│       │       └── text-reveal.tsx
+│       │
+│       ├── effects/                 Visual Effects
+│       │   ├── 📤 index.ts
+│       │   ├── global-rock-background.tsx
+│       │   ├── creative-graphics.tsx
+│       │   ├── splash-screen.tsx
+│       │   ├── lightning/
+│       │   └── layout/
+│       │
+│       ├── hooks/                   Shared Hooks
+│       │   └── (useMediaQuery, etc.)
+│       │
+│       ├── theme-provider.tsx       Theme Provider
+│       └── utils.ts                 Utility Functions
+│
+├── 📚 Documentation
+│   ├── 📘 src/README.md             Complete architecture guide
+│   ├── 🎯 src/features/README.md    Features overview
+│   ├── 🔄 MIGRATION_GUIDE.md        How to migrate old code
+│   ├── 🔍 STRUCTURE_COMPARISON.md   Before/After comparison
+│   ├── 📊 REORGANIZATION_SUMMARY.md Executive summary
+│   ├── 🚀 QUICK_START.md            Quick reference
+│   └── 🌳 STRUCTURE_TREE.txt        This file
+│
+├── 🧪 tests/                        Tests
+│   └── directus-api.test.ts
+│
+├── 📦 public/                       Static Assets
+│
+├── ⚙️ Configuration
+│   ├── .github/
+│   │   └── copilot-instructions.md  AI assistant guide (UPDATED)
+│   ├── tsconfig.json                TypeScript config (path aliases UPDATED)
+│   ├── components.json              shadcn/ui config (needs update)
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   ├── next.config.mjs
+│   └── postcss.config.mjs
+│
+└── 🗑️ Old Structure (to be removed after migration)
+    ├── components/                  OLD - migrated to src/
+    ├── lib/                         OLD - migrated to src/core/
+    └── hooks/                       OLD - migrated to src/shared/
+
+────────────────────────────────────────────────────────────────
+
+🎯 IMPORT PATTERNS
+
+✅ NEW (Use these):
+  import { SiteHeader, Logo } from '@/features/navigation';
+  import { ProductCarousel } from '@/features/product';
+  import { getAllProducts } from '@/core/api';
+  import { Button } from '@/shared/ui';
+  import { cn } from '@/shared/utils';
+
+❌ OLD (Update these):
+  import SiteHeader from '@/components/site-header';
+  import ProductCarousel from '@/components/products/product-carousel';
+  import { getAllProducts } from '@/lib/directus-api';
+  import { Button } from '@/components/ui/button';
+  import { cn } from '@/lib/utils';
+
+────────────────────────────────────────────────────────────────
+
+📋 PATH ALIASES (tsconfig.json)
+
+  @/*               → ./src/*
+  @/features/*      → ./src/features/*
+  @/core/*          → ./src/core/*
+  @/shared/*        → ./src/shared/*
+  @/app/*           → ./app/*
+
+────────────────────────────────────────────────────────────────
+
+🎯 WHERE TO ADD NEW CODE
+
+Navigation?     → src/features/navigation/components/
+Product?        → src/features/product/components/
+Catalog?        → src/features/catalog/components/
+Cart?           → src/features/cart/components/
+UI Primitive?   → src/shared/ui/
+Visual Effect?  → src/shared/effects/
+API Client?     → src/core/api/
+Type?           → src/core/types/
+Utility?        → src/shared/utils.ts
+
+────────────────────────────────────────────────────────────────
+
+🚀 NEXT STEPS
+
+1. Read QUICK_START.md
+2. Update imports in app/ directory (see MIGRATION_GUIDE.md)
+3. Run: npx tsc --noEmit
+4. Run: pnpm dev
+5. Test all pages
+6. Remove old directories when confident
+
+────────────────────────────────────────────────────────────────
+
+✨ Your architecture now SCREAMS: "E-commerce with Products, Catalog, and Cart!"
+
