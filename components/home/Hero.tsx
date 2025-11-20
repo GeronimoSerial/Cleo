@@ -1,0 +1,120 @@
+"use client";
+import { useEffect, useState } from "react";
+
+export default function Hero() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+  return (
+    <section className="relative w-full h-screen bg-nexus-black overflow-hidden flex items-center justify-center">
+      {/* Aesthetic Statue Background */}
+      <div className="absolute inset-0 w-full h-full">
+        {/* Using a specific Unsplash image of a Greek bust for that Vaporwave/Aesthetic look */}
+        <img
+          src="https://images.unsplash.com/photo-1550626636-48798349c40f?q=80&w=2560&auto=format&fit=crop&grayscale"
+          alt="Greek Statue Aesthetic"
+          className="w-full h-full object-cover grayscale contrast-125 brightness-50 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-nexus-black via-transparent to-nexus-black/60" />
+
+        {/* Scanlines for Vaporwave CRT effect */}
+        <div className="scanlines opacity-30"></div>
+        <div className="vignette"></div>
+      </div>
+
+      {/* Grid Decoration */}
+      <div
+        className="absolute inset-0 w-full h-full opacity-10 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
+          backgroundSize: "100px 100px",
+        }}
+      ></div>
+
+      <div className="relative z-20 text-center flex flex-col items-center w-full px-4 mix-blend-screen">
+        <div className="overflow-hidden mb-4">
+          <h2
+            className={`text-nexus-acid font-mono text-xs md:text-sm tracking-[0.8em] transform transition-transform duration-1000 delay-300 border border-nexus-acid px-4 py-1 ${
+              loaded ? "translate-y-0" : "translate-y-full"
+            }`}
+          >
+            SYSTEM_ONLINE // COLLECTION_04
+          </h2>
+        </div>
+
+        {/* Main Typography with Overlapping "Aesthetic" positioning */}
+        <div className="relative">
+          <div className="overflow-hidden relative z-10">
+            <h1
+              className={`text-white font-display font-bold text-7xl md:text-9xl lg:text-[13rem] leading-[0.85] tracking-tighter uppercase transform transition-transform duration-1000 delay-500 ${
+                loaded ? "translate-y-0" : "translate-y-[120%]"
+              }`}
+            >
+              ETERNAL
+            </h1>
+          </div>
+
+          <div className="overflow-hidden relative z-0 -mt-4 md:-mt-8 lg:-mt-12">
+            <h1
+              className={`text-transparent stroke-text font-display font-bold text-7xl md:text-9xl lg:text-[13rem] leading-[0.85] tracking-tighter uppercase transform transition-transform duration-1000 delay-700 blur-[1px] ${
+                loaded ? "translate-y-0" : "translate-y-[120%]"
+              }`}
+              style={{ WebkitTextStroke: "1px white", color: "transparent" }}
+            >
+              RETURN
+            </h1>
+          </div>
+
+          {/* Decorative Japanese Text often found in Vaporwave */}
+          <div
+            className={`absolute -right-8 top-0 hidden md:block writing-vertical text-nexus-acid font-mono text-xs tracking-widest opacity-60 transition-opacity duration-1000 delay-1000 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            ネクサス・アーカイブ
+          </div>
+        </div>
+
+        <div
+          className={`mt-16 flex flex-col md:flex-row gap-8 items-center transition-opacity duration-1000 delay-1000 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <button className="group relative px-10 py-4 bg-white text-nexus-black font-mono font-bold text-sm overflow-hidden hover:bg-nexus-acid transition-colors duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
+            <span className="relative z-10 uppercase tracking-widest">
+              Enter The Void
+            </span>
+          </button>
+        </div>
+      </div>
+
+      {/* Aesthetic Floating Elements */}
+      <div className="absolute top-1/4 left-10 hidden lg:block opacity-30">
+        <div className="w-32 h-32 border border-white/30 rotate-45 animate-[spin_20s_linear_infinite]"></div>
+        <div className="w-32 h-32 border border-white/30 -rotate-12 absolute top-0 left-0"></div>
+      </div>
+
+      <div className="absolute bottom-8 right-8 hidden md:block">
+        <div className="w-32 h-32 border border-white/10 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite] backdrop-blur-sm">
+          <svg viewBox="0 0 100 100" className="w-full h-full p-2">
+            <path
+              id="curve"
+              d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0"
+              fill="transparent"
+            />
+            <text className="text-[9px] font-mono fill-nexus-acid uppercase tracking-widest">
+              <textPath href="#curve">
+                Digital decay • Classical Form • Nexus •
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </section>
+  );
+}
