@@ -29,7 +29,7 @@ export default function Navbar() {
 
         <Link href="/">
           <span className="font-display text-2xl md:text-4xl font-bold tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
-            VANTABLACK
+            RESOLV
           </span>
         </Link>
 

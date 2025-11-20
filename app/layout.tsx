@@ -4,7 +4,8 @@ import { Inter } from "next/font/google";
 import type React from "react";
 // import { SplashScreen } from "@/components/splash-screen";
 // import { SiteHeader } from "@/components/site-header";
-// import { CustomCursor } from "@/components/custom-cursor";
+import { CustomCursor } from "@/components/custom-cursor";
+import Navbar from "@/components/shared/Navbar";
 // import { GlobalRockBackground } from "@/components/global-rock-background";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,10 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-transparent text-gray-100 relative`}
       >
-        {/* <GlobalRockBackground />
-        <div className="relative z-10">
-          <SplashScreen />
-          <SiteHeader /> */}
+        <Navbar />
         {children}
       </body>
     </html>

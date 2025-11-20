@@ -8,7 +8,7 @@ import LatestArrivals from "@/components/home/LatestArrivals";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans selection:bg-white selection:text-black">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <LatestArrivals />
       <Manifesto />
