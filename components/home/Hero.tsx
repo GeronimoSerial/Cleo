@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BackgroundMedia } from "../ui/bg-media";
+import dynamic from "next/dynamic";
+import BackgroundMedia from "../ui/bg-media";
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -13,11 +14,6 @@ export default function Hero() {
       {/* Aesthetic Statue Background */}
       <div className="absolute inset-0 w-full h-full">
         {/* Using a specific Unsplash image of a Greek bust for that Vaporwave/Aesthetic look */}
-        <img
-          src="https://images.unsplash.com/photo-1550626636-48798349c40f?q=80&w=2560&auto=format&fit=crop&grayscale"
-          alt="Greek Statue Aesthetic"
-          className="w-full h-full object-cover grayscale contrast-125 brightness-50 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
-        />
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-nexus-black via-transparent to-nexus-black/60" />
