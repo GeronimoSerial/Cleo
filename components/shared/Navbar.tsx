@@ -12,8 +12,8 @@ export default function Navbar() {
     <>
       <div className="grain opacity-20 z-50 pointer-events-none fixed inset-0"></div>
 
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 mix-blend-difference text-white">
-        <div className="flex items-center gap-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 grid grid-cols-3 items-center px-6 py-6 mix-blend-difference text-white">
+        <div className="flex items-center gap-4 col-start-1">
           <Button
             variant="ghost"
             size="icon"
@@ -23,17 +23,19 @@ export default function Navbar() {
             <Menu className="h-6 w-6" />
           </Button>
           <span className="font-mono text-xs hidden md:block tracking-widest">
-            EST. 2025 // TOKYO — PARIS
+            EST. 2025 // Corrientes - Argentina
           </span>
         </div>
 
-        <Link href="/">
-          <span className="font-display text-2xl md:text-4xl font-bold tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
-            RESOLV
-          </span>
-        </Link>
+        <div className="col-start-2 justify-self-center">
+          <Link href="/">
+            <span className="font-display text-2xl text-center md:text-4xl font-bold tracking-[0.2em] uppercase hover:opacity-80 transition-opacity">
+              RESOLV
+            </span>
+          </Link>
+        </div>
 
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4 col-start-3">
           <span className="font-mono text-xs hidden md:block">CART (0)</span>
           <Button
             variant="ghost"
@@ -42,7 +44,7 @@ export default function Navbar() {
           >
             <ShoppingBag className="h-5 w-5" />
           </Button>
-        </div>
+        </div> */}
       </nav>
 
       {/* Full Screen Menu Overlay */}

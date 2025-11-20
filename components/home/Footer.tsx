@@ -66,10 +66,10 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between items-end border-t border-black/10 pt-8">
         <h2 className="font-display text-[15vw] leading-none opacity-10 select-none pointer-events-none">
-          VANTABLACK
+          RESOLV
         </h2>
         <div className="font-mono text-xs mt-4 md:mt-0">
-          © 2025 VANTABLACK STUDIOS. ALL RIGHTS RESERVED.
+          © 2025 RESOLV STUDIOS. ALL RIGHTS RESERVED.
         </div>
       </div>
     </footer>

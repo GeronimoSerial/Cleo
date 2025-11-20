@@ -1,7 +1,6 @@
 import Manifesto from "@/components/home/Manifesto";
 import About from "@/components/home/About";
 import Footer from "@/components/home/Footer";
-import Navbar from "@/components/shared/Navbar";
 import Hero from "@/components/home/Hero";
 import LatestArrivals from "@/components/home/LatestArrivals";
 

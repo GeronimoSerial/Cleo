@@ -30,7 +30,7 @@ export default function About() {
           </h2>
 
           <p className="font-mono text-sm md:text-base leading-relaxed mb-8 text-black/70">
-            Founded in 2025, VANTABLACK operates at the intersection of
+            Founded in 2025, Resolv operates at the intersection of
             industrial design and avant-garde fashion. Our atelier is a
             laboratory where fabrics are treated as raw construction materials.
           </p>

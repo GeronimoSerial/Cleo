@@ -46,7 +46,7 @@ export default function Hero() {
                 loaded ? "translate-y-0" : "translate-y-full"
               }`}
             >
-              SYSTEM_ONLINE // COLLECTION_04
+              WHERE STREET CULTURE
             </h2>
           </div>
 
@@ -58,7 +58,7 @@ export default function Hero() {
                   loaded ? "translate-y-0" : "translate-y-[120%]"
                 }`}
               >
-                ETERNAL
+                MEETS
               </h1>
             </div>
 
@@ -69,18 +69,18 @@ export default function Hero() {
                 }`}
                 style={{ WebkitTextStroke: "1px white", color: "transparent" }}
               >
-                RETURN
+                ROCK
               </h1>
             </div>
 
             {/* Decorative Japanese Text often found in Vaporwave */}
-            <div
+            {/* <div
               className={`absolute -right-8 top-0 hidden md:block writing-vertical text-nexus-acid font-mono text-xs tracking-widest opacity-60 transition-opacity duration-1000 delay-1000 ${
                 loaded ? "opacity-100" : "opacity-0"
               }`}
             >
               ネクサス・アーカイブ
-            </div>
+            </div> */}
           </div>
 
           <div

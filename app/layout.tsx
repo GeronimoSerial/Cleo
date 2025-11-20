@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   title: "CLEO - Streetwear & Rock",
   description:
     "Where street culture meets rock rebellion. Premium streetwear with attitude.",
-  generator: "v0.dev",
 };
 
 export default function RootLayout({
