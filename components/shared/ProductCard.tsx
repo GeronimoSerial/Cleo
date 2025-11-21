@@ -31,7 +31,7 @@ export default function ProductCard({
         />
       </div>
 
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ">
         <Button className="rounded-none bg-white text-black hover:bg-black hover:text-white border border-transparent hover:border-white uppercase tracking-widest">
           Ver producto
         </Button>

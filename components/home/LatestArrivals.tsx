@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProductCard from "../shared/ProductCard";
 import { Product } from "@/lib/strapi";
+import { getStrapiMediaUrl } from "@/lib/strapi";
 
 export default function LatestArrivals({ products }: { products: Product[] }) {
   return (
@@ -17,39 +18,24 @@ export default function LatestArrivals({ products }: { products: Product[] }) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
         {/* We can map over these or just manually link the first one for the demo */}
-        
-        <Link href={`/product/${products[0]?.slug || "product_1"}`}>
-          <span className="block cursor-pointer">
-            <ProductCard
-              image={products[0]?.fotos?.[0]?.url || ""}
-              title={products[0]?.nombre || "BOXY_FIT_01"}
-              price="$00.00"
-              tag="BESTSELLER"
-            />
-          </span>
-        </Link>
-
-        <Link href={`/product/${products[1]?.slug || "product_2"}`}>
-          <span className="block cursor-pointer">
-            <ProductCard
-              image={products[1]?.fotos?.[0]?.url || ""}
-              title={products[1]?.nombre || "GR_TV_90_TSHIRT"}
-              price="$00.00"
-              tag="LOW STOCK"
-            />
-          </span>
-        </Link>
-
-        <Link href="/product_3">
-          <span className="block cursor-pointer">
-            <ProductCard
-              image={products[2]?.fotos?.[0]?.url || ""}
-              title={products[2]?.nombre || "ROLLING_STONES_03"}
-              price="$00.00"
-              tag="NEW IN"
-            />
-          </span>
-        </Link>
+        {products.map((product, index) => (
+          <Link key={product.id} href={`/product/${product.slug}`}>
+            <span className="block cursor-pointer">
+              <ProductCard
+                image={getStrapiMediaUrl(product.fotos?.[0]?.url) || ""}
+                title={product.nombre || "PRODUCT_NAME"}
+                price={`$${product.precio?.toLocaleString() || "00.00"}`}
+                tag={
+                  index === 0
+                    ? "BESTSELLER"
+                    : index === 1
+                    ? "LOW STOCK"
+                    : "NEW IN"
+                }
+              />
+            </span>
+          </Link>
+        ))}
       </div>
     </section>
   );

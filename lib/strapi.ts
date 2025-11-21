@@ -1,5 +1,7 @@
 import qs from "qs";
 
+import { mapStrapiProduct } from "./productMapper";
+
 const BASE_URL = "http://localhost:1337";
 
 // Interfaces para los datos de Strapi
@@ -107,7 +109,7 @@ export async function getAllProducts(): Promise<Product[]> {
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener un producto por slug
@@ -127,13 +129,17 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   );
 
   const response = await getStrapiData(`/api/productos?${query}`);
+  const item = response?.data?.[0];
 
-  if (!response || !response.data || response.data.length === 0) {
-    return null;
-  }
-
-  return response.data[0];
+  if (!item) return null;
+  return item ? mapStrapiProduct(item) : null;
 }
+
+//   if (!response || !response.data || response.data.length === 0) {
+//     return null;
+//   }
+
+//     return response.data[0];
 
 // Obtener productos por categoría
 export async function getProductsByCategory(
@@ -161,7 +167,7 @@ export async function getProductsByCategory(
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener productos por drop
@@ -188,7 +194,7 @@ export async function getProductsByDrop(dropSlug: string): Promise<Product[]> {
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener productos por tags
@@ -213,7 +219,7 @@ export async function getProductsByTag(tag: string): Promise<Product[]> {
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener últimos productos (latest arrivals)
@@ -237,7 +243,7 @@ export async function getLatestProducts(limit = 3): Promise<Product[]> {
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener productos destacados (featured)
@@ -262,7 +268,7 @@ export async function getFeaturedProducts(): Promise<Product[]> {
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // Obtener productos relacionados (misma categoría, excluyendo el producto actual)
@@ -299,7 +305,7 @@ export async function getRelatedProducts(
     return [];
   }
 
-  return response.data;
+  return response.data.map(mapStrapiProduct);
 }
 
 // === FUNCIONES PARA CATEGORÍAS ===
