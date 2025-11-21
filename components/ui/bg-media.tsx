@@ -8,7 +8,7 @@ type OverlayVariant = "none" | "light" | "dark";
 type MediaType = "image" | "video";
 
 const backgroundVariants = cva(
-  "relative h-screen max-h-[1000px] w-full min-h-[500px] lg:min-h-[600px]",
+  "relative w-full h-full",
   {
     variants: {
       overlay: {

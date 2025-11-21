@@ -100,7 +100,7 @@ export default function Hero() {
 
         {/* Right Column: Media Placeholder */}
         <div className="absolute inset-0 flex items-center justify-center lg:relative lg:col-span-1 z-10 w-full h-full">
-          <div className="w-full max-w-md lg:max-w-xl aspect-video">
+          <div className="w-full h-full lg:max-w-xl lg:aspect-video">
             <BackgroundMedia
               src="https://res.cloudinary.com/dmitnt8de/video/upload/v1763682573/bgmedia_1_ua6utj.mp4"
               type="video"
