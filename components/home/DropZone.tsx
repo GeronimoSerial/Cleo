@@ -55,7 +55,7 @@ const DropZone = () => {
           </p>
 
           <Link
-            href="/drop"
+            href="#drop"
             className="group relative inline-flex bg-white text-nexus-black px-8 py-4 font-mono font-bold text-sm uppercase tracking-widest overflow-hidden hover:bg-nexus-acid transition-colors duration-300 items-center gap-4"
           >
             <span className="relative z-10 text-black">Ver Drop</span>
