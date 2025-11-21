@@ -116,7 +116,7 @@ export default function Hero() {
         <div className="w-32 h-32 border border-white/30 -rotate-12 absolute top-0 left-0"></div>
       </div>
 
-      <div className="absolute bottom-8 right-8 hidden md:block">
+      {/* <div className="absolute bottom-8 right-8 hidden md:block">
         <div className="w-32 h-32 border border-white/10 rounded-full flex items-center justify-center animate-[spin_10s_linear_infinite] backdrop-blur-sm">
           <svg viewBox="0 0 100 100" className="w-full h-full p-2">
             <path
@@ -131,7 +131,7 @@ export default function Hero() {
             </text>
           </svg>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

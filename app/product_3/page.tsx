@@ -32,7 +32,7 @@ export default function ProductPage() {
                 src="/products/5.jpg"
                 alt="Product Front"
                 fill
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover  contrast-125 group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute bottom-4 left-4 font-mono text-xs bg-black text-white px-2 py-1">
                 FIG_01 // FRONT VIEW
@@ -42,7 +42,7 @@ export default function ProductPage() {
               <Image
                 src="/products/6.jpg"
                 alt="Product Back"
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover  contrast-125 group-hover:scale-105 transition-transform duration-700"
                 fill
               />
               <div className="absolute bottom-4 left-4 font-mono text-xs bg-black text-white px-2 py-1">
@@ -53,7 +53,7 @@ export default function ProductPage() {
               <Image
                 src="/products/7.jpg"
                 alt="Fabric Detail"
-                className="w-full h-full object-cover grayscale contrast-150 scale-150 group-hover:scale-[1.6] transition-transform duration-700"
+                className="w-full h-full object-cover  contrast-150 scale-150 group-hover:scale-[1.6] transition-transform duration-700"
                 fill
               />
               <div className="absolute bottom-4 left-4 font-mono text-xs bg-black text-white px-2 py-1">
