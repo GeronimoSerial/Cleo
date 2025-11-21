@@ -3,6 +3,8 @@ import About from "@/components/home/About";
 import Footer from "@/components/home/Footer";
 import Hero from "@/components/home/Hero";
 import LatestArrivals from "@/components/home/LatestArrivals";
+import DropZone from "@/components/home/DropZone";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       {/* <Navbar /> */}
       <Hero />
       <LatestArrivals />
+      <DropZone />
+      <Separator></Separator>
       <Manifesto />
       <About />
       <Footer />
