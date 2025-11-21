@@ -27,7 +27,7 @@ export default function ProductPage() {
         {/* Left: Image Gallery (Scrollable) */}
         <div className="lg:col-span-7 lg:border-r border-white/10 pt-24 lg:pt-0">
           <div className="flex flex-col">
-            <div className="aspect-[3/4] w-full relative border-b border-white/10 group overflow-hidden">
+            <div className="aspect-3/4 w-full relative border-b border-white/10 group overflow-hidden">
               <Image
                 src="/products/8.jpg"
                 alt="Product Front"
@@ -38,7 +38,7 @@ export default function ProductPage() {
                 FIG_01 // FRONT VIEW
               </div>
             </div>
-            <div className="aspect-[3/4] w-full relative border-b border-white/10 group overflow-hidden">
+            <div className="aspect-3/4 w-full relative border-b border-white/10 group overflow-hidden">
               <Image
                 src="/products/9.jpg"
                 alt="Product Back"

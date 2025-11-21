@@ -1,7 +1,7 @@
 import { Zap, ArrowRight, Globe } from "lucide-react";
 import Link from "next/link";
 import CountdownTimer from "./CountdownTimer";
-import { Separator } from "../ui/separator";
+import { Suspense } from "react";
 
 export const NEXT_DROP: any = {
   title: "COLLECTION 04: ENTROPY",
@@ -69,7 +69,9 @@ const DropZone = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center lg:items-end">
-          <CountdownTimer targetDate={NEXT_DROP.date} />
+          <Suspense fallback={<div>Cargando cuenta regresiva...</div>}>
+            <CountdownTimer targetDate={NEXT_DROP.date} />
+          </Suspense>
           <div className="mt-8 inline-block border border-nexus-acid px-4 py-1 bg-nexus-acid/10">
             <span className="text-nexus-acid font-mono text-xs tracking-widest uppercase flex items-center gap-2">
               <Zap size={12} className="fill-nexus-acid" />

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import ProductCard from "../shared/ProductCard";
+import { Product } from "@/lib/strapi";
 
-export default function LatestArrivals() {
+export default function LatestArrivals({ products }: { products: Product[] }) {
   return (
     <section
       id="latest-arrivals"
@@ -16,22 +17,23 @@ export default function LatestArrivals() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
         {/* We can map over these or just manually link the first one for the demo */}
-        <Link href="/product_1">
+        
+        <Link href={`/product/${products[0]?.slug || "product_1"}`}>
           <span className="block cursor-pointer">
             <ProductCard
-              image="/products/1.jpg"
-              title="BOXY_FIT_01"
+              image={products[0]?.fotos?.[0]?.url || ""}
+              title={products[0]?.nombre || "BOXY_FIT_01"}
               price="$00.00"
               tag="BESTSELLER"
             />
           </span>
         </Link>
 
-        <Link href="/product_2">
+        <Link href={`/product/${products[1]?.slug || "product_2"}`}>
           <span className="block cursor-pointer">
             <ProductCard
-              image="/products/2.jpg"
-              title="GR_TV_90_TSHIRT"
+              image={products[1]?.fotos?.[0]?.url || ""}
+              title={products[1]?.nombre || "GR_TV_90_TSHIRT"}
               price="$00.00"
               tag="LOW STOCK"
             />
@@ -41,8 +43,8 @@ export default function LatestArrivals() {
         <Link href="/product_3">
           <span className="block cursor-pointer">
             <ProductCard
-              image="/products/5.jpg"
-              title="ROLLING_STONES_03"
+              image={products[2]?.fotos?.[0]?.url || ""}
+              title={products[2]?.nombre || "ROLLING_STONES_03"}
               price="$00.00"
               tag="NEW IN"
             />
