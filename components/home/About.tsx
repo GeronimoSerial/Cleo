@@ -62,7 +62,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Conocenos
+              Conocénos
             </Link>
           </Button>
         </div>
