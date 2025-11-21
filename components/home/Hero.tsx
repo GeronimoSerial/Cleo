@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import BackgroundMedia from "../ui/bg-media";
+import { Button } from "../ui/button";
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -84,11 +85,16 @@ export default function Hero() {
               loaded ? "opacity-100" : "opacity-0"
             }`}
           >
-            <button className="group relative px-10 py-4 bg-white text-nexus-black font-mono font-bold text-sm overflow-hidden hover:bg-nexus-acid transition-colors duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
-              <span className="relative z-10 uppercase tracking-widest">
-                Enter The Void
-              </span>
-            </button>
+            <Button
+              className="group relative px-10 py-4 bg-white text-black font-mono font-bold text-sm overflow-hidden hover:bg-accent transition-colors cursor-pointer duration-300 shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)] uppercase tracking-widest"
+              onClick={() => {
+                document
+                  .getElementById("latest-arrivals")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Armá tu outfit
+            </Button>
           </div>
         </div>
 
@@ -96,7 +102,7 @@ export default function Hero() {
         <div className="absolute inset-0 flex items-center justify-center lg:relative lg:col-span-1 z-10 w-full h-full">
           <div className="w-full max-w-md lg:max-w-xl aspect-video">
             <BackgroundMedia
-              src="https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4"
+              src="https://res.cloudinary.com/dmitnt8de/video/upload/v1763682573/bgmedia_1_ua6utj.mp4"
               type="video"
               variant="dark"
             />

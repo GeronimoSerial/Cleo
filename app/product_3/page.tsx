@@ -10,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -28,7 +29,7 @@ export default function ProductPage() {
           <div className="flex flex-col">
             <div className="aspect-[3/4] w-full relative border-b border-white/10 group overflow-hidden">
               <Image
-                src="https://via.placeholder.com/800x1067/000000/FFFFFF?text=HOODIE"
+                src="/products/5.jpg"
                 alt="Product Front"
                 fill
                 className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
@@ -39,7 +40,7 @@ export default function ProductPage() {
             </div>
             <div className="aspect-[3/4] w-full relative border-b border-white/10 group overflow-hidden">
               <Image
-                src="https://via.placeholder.com/800x1067/111111/FFFFFF?text=HOODIE+BACK"
+                src="/products/6.jpg"
                 alt="Product Back"
                 className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"
                 fill
@@ -50,7 +51,7 @@ export default function ProductPage() {
             </div>
             <div className="aspect-video w-full relative group overflow-hidden">
               <Image
-                src="https://via.placeholder.com/800x450/222222/FFFFFF?text=FABRIC+DETAIL"
+                src="/products/7.jpg"
                 alt="Fabric Detail"
                 className="w-full h-full object-cover grayscale contrast-150 scale-150 group-hover:scale-[1.6] transition-transform duration-700"
                 fill
@@ -79,26 +80,23 @@ export default function ProductPage() {
                   <Star className="h-3 w-3 fill-current" />
                   <Star className="h-3 w-3 fill-current" />
                   <Star className="h-3 w-3 fill-current" />
-                  <span className="text-neutral-500 text-xs ml-2 font-mono">
-                    (24 REVIEWS)
-                  </span>
+                  <span className="text-neutral-500 text-xs ml-2 font-mono"></span>
                 </div>
               </div>
 
               <h1 className="font-display text-5xl lg:text-7xl leading-[0.85] mb-6 tracking-tight uppercase">
-                Ovr_Sized
+                ROLLING STONES
                 <br />
-                Hoodie_01
+                shirt_03
               </h1>
 
-              <p className="font-mono text-2xl mb-8">€450.00</p>
+              <p className="font-mono text-2xl mb-8">$00.00</p>
 
               <div className="prose prose-invert mb-12 text-neutral-400 font-sans leading-relaxed max-w-md">
                 <p>
-                  Heavyweight french terry cotton. Distressed finish applied by
-                  hand in our Tokyo atelier. Features dropped shoulders,
-                  elongated sleeves, and raw hem details. Signature
-                  cyber-sigilism graphic print on reverse.
+                  Camiseta de algodón orgánico de alta calidad con estampado
+                  inspirado en los icónicos Rolling Stones. Diseño oversize y
+                  detalles cuidados para un look auténtico y cómodo.
                 </p>
               </div>
 
@@ -106,7 +104,7 @@ export default function ProductPage() {
               <div className="mb-12">
                 <div className="flex justify-between mb-4">
                   <span className="font-mono text-xs uppercase tracking-widest">
-                    Select Size
+                    Seleccionar talle
                   </span>
                   <span className="font-mono text-xs uppercase tracking-widest underline cursor-pointer hover:text-white text-neutral-500">
                     Size Guide
@@ -149,12 +147,14 @@ export default function ProductPage() {
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
-                <Button className="flex-1 h-14 rounded-none bg-white text-black hover:bg-neutral-200 font-mono uppercase tracking-widest text-lg">
-                  Add to Cart
+                <Button
+                  className="flex-1 h-14 rounded-none bg-white text-black hover:bg-neutral-200 font-mono uppercase tracking-widest text-lg"
+                  asChild
+                >
+                  <Link href="https://wa.me/543777301196">Consultar</Link>
                 </Button>
               </div>
             </div>
-
             {/* Technical Details Accordion */}
             <div className="mt-auto">
               <Accordion
@@ -181,7 +181,7 @@ export default function ProductPage() {
                       </li>
                       <li className="flex justify-between">
                         <span>ORIGIN:</span>
-                        <span>MADE IN JAPAN</span>
+                        <span>SHATO</span>
                       </li>
                       <li className="flex justify-between">
                         <span>CARE:</span>
@@ -195,12 +195,12 @@ export default function ProductPage() {
                   className="border-b border-white/10"
                 >
                   <AccordionTrigger className="font-mono text-sm uppercase tracking-widest hover:no-underline py-6">
-                    Shipping & Returns
+                    Envíos & Devoluciones
                   </AccordionTrigger>
                   <AccordionContent className="text-neutral-400 font-sans text-sm pb-6">
-                    Free worldwide shipping on orders over €500. All items are
-                    shipped via DHL Express (1-3 business days). Returns
-                    accepted within 14 days of delivery for store credit only.
+                    Retirá en tienda o envíos a todo el país. Para cambios y
+                    devoluciones, contáctenos directamente para obtener más
+                    información.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>

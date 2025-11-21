@@ -3,15 +3,17 @@ export default function Footer() {
     <footer className="bg-white text-black pt-24 pb-12 px-4 md:px-12 border-t border-black">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
         <div className="col-span-1 md:col-span-2">
-          <h4 className="font-display text-5xl mb-8">JOIN THE CULT</h4>
+          <h4 className="font-display text-5xl mb-8">
+            UNÍTE A LA CULTURA <strong>STREET ROCK</strong>{" "}
+          </h4>
           <div className="flex gap-0 border-b border-black pb-2">
             <input
               type="email"
-              placeholder="EMAIL ADDRESS"
+              placeholder="DIRECCIÓN DE EMAIL"
               className="bg-transparent border-none outline-none w-full font-mono text-lg placeholder:text-black/50"
             />
             <button className="font-mono uppercase hover:opacity-50">
-              Subscribe
+              SUBSCRIBÍTE
             </button>
           </div>
         </div>
@@ -21,22 +23,12 @@ export default function Footer() {
           <ul className="space-y-2 font-sans text-sm">
             <li>
               <a href="#" className="hover:underline">
-                Shop All
+                Ver todo
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Collections
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Editorial
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Stockists
+              <a href="#latest-arrivals" className="hover:underline">
+                Colecciones
               </a>
             </li>
           </ul>
@@ -69,7 +61,7 @@ export default function Footer() {
           RESOLV
         </h2>
         <div className="font-mono text-xs mt-4 md:mt-0">
-          © 2025 RESOLV STUDIOS. ALL RIGHTS RESERVED.
+          © 2025 RESOLV STUDIOS.
         </div>
       </div>
     </footer>
