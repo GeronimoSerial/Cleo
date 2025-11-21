@@ -66,8 +66,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   w-full h-full object-cover transition-transform duration-700
                   ${
                     isMacro
-                      ? "contrast-150 scale-150 group-hover:scale-[1.6]" // Estilos agresivos para textura
-                      : "contrast-125 group-hover:scale-105" // Estilos suaves para producto
+                      ? "contrast-150 scale-150 group-hover:scale-[1.6]"
+                      : "contrast-125 group-hover:scale-105"
                   }
                 `}
                   />
@@ -143,7 +143,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       `}
                     >
                       {size}
-                    </button>
+                    </button> 
                   ))}
                 </div>
               </div>

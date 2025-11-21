@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProductCard from "../shared/ProductCard";
-import { Product } from "@/lib/strapi";
 import { getStrapiMediaUrl } from "@/lib/strapi";
+import { Product } from "@/interfaces/product";
 
 export default function LatestArrivals({ products }: { products: Product[] }) {
   return (

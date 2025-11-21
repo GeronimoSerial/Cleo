@@ -1,4 +1,4 @@
-import { Product } from "./strapi";
+import { Product } from "@/interfaces/product";
 
 export function mapStrapiProduct(item: any): Product {
   // Strapi v5: datos vienen directamente sin wrapper "attributes"

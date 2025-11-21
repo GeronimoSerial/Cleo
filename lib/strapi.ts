@@ -1,71 +1,12 @@
 import qs from "qs";
-
+import { Product } from "@/interfaces/product";
+import { Category } from "@/interfaces/category";
+import { StrapiResponse } from "@/interfaces/strapiresponse";
 import { mapStrapiProduct } from "./productMapper";
 
 const BASE_URL = "http://localhost:1337";
 
 // Interfaces para los datos de Strapi
-export interface Product {
-  id: number;
-  documentId?: string;
-  nombre: string;
-  descripcion?: string;
-  precio?: number;
-  stock?: number;
-  tags?: string[];
-  slug: string;
-  fotos?: {
-    id: number;
-    url: string;
-    alternativeText?: string;
-  }[];
-  sizes?: {
-    id: number;
-    size: string;
-  }[];
-  category?: {
-    id: number;
-    nombre: string;
-    slug: string;
-    descripcion?: string;
-  };
-  drop?: {
-    id: number;
-    nombre: string;
-    slug: string;
-  };
-  createdAt?: string;
-  updatedAt?: string;
-  publishedAt?: string;
-}
-
-export interface StrapiResponse<T> {
-  data: T;
-  meta?: {
-    pagination?: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    };
-  };
-}
-
-export interface Category {
-  id: number;
-  documentId?: string;
-  nombre: string;
-  slug: string;
-  descripcion?: string;
-  imagen?: {
-    id: number;
-    url: string;
-    alternativeText?: string;
-  };
-  createdAt?: string;
-  updatedAt?: string;
-  publishedAt?: string;
-}
 
 // Función base para obtener datos de Strapi
 export async function getStrapiData(url: string) {
