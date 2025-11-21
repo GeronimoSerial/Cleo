@@ -7,27 +7,23 @@ import { cn } from "@/lib/utils";
 type OverlayVariant = "none" | "light" | "dark";
 type MediaType = "image" | "video";
 
-const backgroundVariants = cva(
-  "relative w-full h-full",
-  {
-    variants: {
-      overlay: {
-        none: "",
-        light:
-          "before:absolute before:inset-0 before:bg-white before:opacity-30",
-        dark: "before:absolute before:inset-0 before:bg-black before:opacity-30",
-      },
-      type: {
-        image: "",
-        video: "z-10",
-      },
+const backgroundVariants = cva("relative w-full h-full", {
+  variants: {
+    overlay: {
+      none: "",
+      light: "before:absolute before:inset-0 before:bg-white before:opacity-30",
+      dark: "before:absolute before:inset-0 before:bg-black before:opacity-30",
     },
-    defaultVariants: {
-      overlay: "none",
-      type: "image",
+    type: {
+      image: "",
+      video: "z-10",
     },
-  }
-);
+  },
+  defaultVariants: {
+    overlay: "none",
+    type: "image",
+  },
+});
 
 interface BackgroundMediaProps {
   variant?: OverlayVariant;
