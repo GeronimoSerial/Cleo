@@ -1,3 +1,4 @@
+"use cache";
 import Manifesto from "@/components/home/Manifesto";
 import About from "@/components/home/About";
 import Footer from "@/components/home/Footer";
