@@ -31,7 +31,7 @@ export default function Navbar() {
             <Menu className="h-6 w-6" />
           </Button>
           <span className="font-mono text-xs hidden md:block tracking-widest">
-            EST. 2025 // Corrientes - Argentina
+            2025 // Corrientes - Argentina
           </span>
         </div>
 

@@ -12,7 +12,7 @@ export default function Manifesto() {
           MANIFIESTO
         </span>
         <h3 className="font-display text-3xl mt-4 leading-tight">
-          WE DO NOT DESIGN CLOTHES. WE ARCHITECT IDENTITIES.
+          NO DISEÑAMOS ROPA. CREAMOS ACTITUD.
         </h3>
       </div>
       <div className="w-full md:w-2/3 font-sans text-lg md:text-2xl leading-relaxed text-neutral-400 relative z-10">
