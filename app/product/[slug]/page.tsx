@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { getProductBySlug } from "@/lib/strapi";
 import { getStrapiMediaUrl } from "@/lib/strapi";
+import ProductActions from "@/components/products/ProductActions";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -90,7 +91,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   variant="outline"
                   className="rounded-none border-white/20 text-neutral-400 font-mono text-xs uppercase tracking-widest"
                 >
-                  Season 04 // 90s Revival
+                  {product?.category?.nombre || "CATEGORY"}
                 </Badge>
                 <div className="flex items-center gap-1 text-yellow-500/80">
                   <Star className="h-3 w-3 fill-current" />
@@ -117,61 +118,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </p>
               </div>
 
-              {/* Size Selector */}
-              <div className="mb-12">
-                <div className="flex justify-between mb-4">
-                  <span className="font-mono text-xs uppercase tracking-widest">
-                    Seleccionar talle
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-widest underline cursor-pointer hover:text-white text-neutral-500">
-                    Guía de talles
-                  </span>
-                </div>
-                <div className="grid grid-cols-3 gap-2">
-                  {sizes.map((size) => (
-                    <button
-                      key={size}
-                      //   onClick={() => setSelectedSize(size)}
-                      className={`
-                        h-12 border font-mono text-sm transition-all duration-300 uppercase
-                        ${
-                          ""
-                          // selectedSize === size
-                          //   ? "bg-white text-black border-white"
-                          //   : "bg-transparent border-white/20 text-neutral-400 hover:border-white hover:text-white"
-                        }
-                      `}
-                    >
-                      {size}
-                    </button> 
-                  ))}
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="flex gap-4 mb-12">
-                <div className="flex items-center border border-white/20 h-14 px-4">
-                  <button
-                    // onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-2 hover:text-white text-neutral-500 transition-colors"
-                  >
-                    <Minus className="h-4 w-4" />
-                  </button>
-                  {/* <span className="w-12 text-center font-mono">{quantity}</span> */}
-                  <button
-                    // onClick={() => setQuantity(quantity + 1)}
-                    className="p-2 hover:text-white text-neutral-500 transition-colors"
-                  >
-                    <Plus className="h-4 w-4" />
-                  </button>
-                </div>
-                <Button
-                  className="flex-1 h-14 rounded-none bg-white text-black hover:bg-neutral-200 font-mono uppercase tracking-widest text-lg"
-                  asChild
-                >
-                  <Link href="https://wa.me/543777301196">Consultar</Link>
-                </Button>
-              </div>
+              <ProductActions
+                productName={product?.nombre || "Producto"}
+                initialSizes={sizes}
+              />
             </div>
             {/* Technical Details Accordion */}
             <div className="mt-auto">

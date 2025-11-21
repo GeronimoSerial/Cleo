@@ -7,6 +7,7 @@ export interface Product {
   stock?: number;
   tags?: string[];
   slug: string;
+  season?: string;
   fotos?: {
     id: number;
     url: string;

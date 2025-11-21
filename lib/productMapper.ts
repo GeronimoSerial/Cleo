@@ -11,6 +11,7 @@ export function mapStrapiProduct(item: any): Product {
     stock: item.stock,
     tags: item.tags,
     slug: item.slug,
+    season: item.season,
 
     // fotos: array directo sin wrapper "data"
     fotos: item.fotos?.map((f: any) => ({

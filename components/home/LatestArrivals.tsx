@@ -3,7 +3,13 @@ import ProductCard from "../shared/ProductCard";
 import { getStrapiMediaUrl } from "@/lib/strapi";
 import { Product } from "@/interfaces/product";
 
-export default function LatestArrivals({ products }: { products: Product[] }) {
+export default function LatestArrivals({
+  products,
+  season,
+}: {
+  products: Product[];
+  season: string[];
+}) {
   return (
     <section
       id="latest-arrivals"
@@ -12,7 +18,7 @@ export default function LatestArrivals({ products }: { products: Product[] }) {
       <div className="flex justify-between items-end mb-16">
         <h2 className="text-4xl md:text-6xl font-display">LATEST ARRIVALS</h2>
         <span className="font-mono text-sm text-muted-foreground hidden md:block">
-          SEASON 04 // 90'S REVIVAL
+          {season}
         </span>
       </div>
 

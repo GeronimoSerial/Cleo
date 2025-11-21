@@ -7,17 +7,19 @@ import DropZone from "@/components/home/DropZone";
 import { Separator } from "@/components/ui/separator";
 import { getStrapiData } from "@/lib/strapi";
 import { getLatestProducts } from "@/lib/strapi";
+import { getLatestSeason } from "@/lib/strapi";
 
 export default async function Home() {
   const latestProducts = await getLatestProducts();
-
+  const latestSeason = await getLatestSeason();
   console.log("Latest Products:", latestProducts);
+  console.log("Latest Seasons:", latestSeason);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden font-sans selection:bg-white selection:text-black">
       {/* <Navbar /> */}
       <Hero />
-      <LatestArrivals products={latestProducts} />
+      <LatestArrivals products={latestProducts} season={latestSeason} />
       <DropZone />
       <Separator></Separator>
       <Manifesto />

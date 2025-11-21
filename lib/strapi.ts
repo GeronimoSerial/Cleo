@@ -1,10 +1,9 @@
 import qs from "qs";
 import { Product } from "@/interfaces/product";
 import { Category } from "@/interfaces/category";
-import { StrapiResponse } from "@/interfaces/strapiresponse";
 import { mapStrapiProduct } from "./productMapper";
 
-const BASE_URL = "http://localhost:1337";
+const BASE_URL = process.env.STRAPI_BASE_URL || "http://localhost:1337";
 
 // Interfaces para los datos de Strapi
 
@@ -247,6 +246,25 @@ export async function getRelatedProducts(
   }
 
   return response.data.map(mapStrapiProduct);
+}
+
+// FUNCIONES PARA TEMPORADAS
+export async function getLatestSeason(): Promise<string[]> {
+  const query = qs.stringify(
+    {
+      sort: ["createdAt:desc"],
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const response = await getStrapiData(`/api/seasons?${query}`);
+  if (!response || !response.data) return [];
+
+  return response.data
+    .map((item: any) => item.nombre ?? item.attributes?.nombre ?? null)
+    .filter(Boolean) as string[];
 }
 
 // === FUNCIONES PARA CATEGORÍAS ===
