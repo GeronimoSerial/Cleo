@@ -1,7 +1,6 @@
 import { Product } from "@/interfaces/product";
 
 export function mapStrapiProduct(item: any): Product {
-  // Strapi v5: datos vienen directamente sin wrapper "attributes"
   return {
     id: item.id,
     documentId: item.documentId,
@@ -12,6 +11,7 @@ export function mapStrapiProduct(item: any): Product {
     tags: item.tags,
     slug: item.slug,
     season: item.season,
+    marca: item.marca,
 
     // fotos: array directo sin wrapper "data"
     fotos: item.fotos?.map((f: any) => ({

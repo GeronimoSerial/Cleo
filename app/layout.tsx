@@ -2,11 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type React from "react";
-// import { SplashScreen } from "@/components/splash-screen";
-// import { SiteHeader } from "@/components/site-header";
-import { CustomCursor } from "@/components/custom-cursor";
 import Navbar from "@/components/shared/Navbar";
-// import { GlobalRockBackground } from "@/components/global-rock-background";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-transparent text-gray-100 relative`}
       >
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         {children}
       </body>
     </html>

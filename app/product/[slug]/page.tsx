@@ -1,6 +1,5 @@
-import { Minus, Plus, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
@@ -8,25 +7,40 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Link from "next/link";
 import { getProductBySlug } from "@/lib/strapi";
 import { getStrapiMediaUrl } from "@/lib/strapi";
+import { getAllProducts } from "@/lib/strapi";
 import ProductActions from "@/components/products/ProductActions";
-
+import { Suspense } from "react";
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  // Implement logic to generate static params if needed
+  try {
+    const res = await getAllProducts();
+    return res.map((product) => ({
+      slug: product.slug,
+    }));
+  } catch (error) {
+    console.error("Error generating static params:", error);
+    return [];
+  }
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-
-  //   const [selectedSize, setSelectedSize] = useState<string | null>(null);
-  //   const [quantity, setQuantity] = useState(1);
-
-  const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
   const photos = product?.fotos || [];
-
+  const sizes = product?.sizes?.map((size) => size.size) || [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL",
+  ];
   const getLabel = (index: number) => {
     const labels = [
       "FRONT VIEW",
@@ -47,9 +61,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="lg:col-span-7 lg:border-r border-white/10 pt-24 lg:pt-0">
           <div className="flex flex-col">
             {photos.map((photo: any, index: number) => {
-              // Lógica condicional para el 3er elemento (índice 2) que es "Macro/Video"
               const isMacro = index === 2;
-
               return (
                 <div
                   key={photo.id || index}
@@ -117,11 +129,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     "No description available for this product."}
                 </p>
               </div>
-
-              <ProductActions
-                productName={product?.nombre || "Producto"}
-                initialSizes={sizes}
-              />
+              <Suspense fallback={<div>Cargando acciones del producto...</div>}>
+                <ProductActions
+                  productName={product?.nombre || "Producto"}
+                  initialSizes={sizes}
+                />
+              </Suspense>
             </div>
             {/* Technical Details Accordion */}
             <div className="mt-auto">

@@ -19,13 +19,13 @@ const DropZone = () => {
       className="w-full bg-nexus-gray py-24 px-6 relative overflow-hidden border-t border-white/10"
     >
       {/* Marble Texture Background */}
-      <div
+      {/* <div
         className="absolute inset-0 opacity-20 mix-blend-overlay"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1598551636736-4e3208a00d3d?q=80&w=2000&auto=format&fit=crop&grayscale')`,
           backgroundSize: "cover",
         }}
-      />
+      /> */}
 
       {/* Scanlines */}
       <div className="scanlines opacity-10"></div>

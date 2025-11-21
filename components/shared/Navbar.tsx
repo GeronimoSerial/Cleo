@@ -11,7 +11,6 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Close menu whenever the route changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);

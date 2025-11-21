@@ -1,15 +1,18 @@
 import Link from "next/link";
 import ProductCard from "../shared/ProductCard";
-import { getStrapiMediaUrl } from "@/lib/strapi";
+import {
+  getLatestProducts,
+  getLatestSeason,
+  getStrapiMediaUrl,
+} from "@/lib/strapi";
 import { Product } from "@/interfaces/product";
 
-export default function LatestArrivals({
-  products,
-  season,
-}: {
-  products: Product[];
-  season: string[];
-}) {
+export default async function LatestArrivals() {
+  const [products, season] = await Promise.all([
+    getLatestProducts(),
+    getLatestSeason(),
+  ]);
+
   return (
     <section
       id="latest-arrivals"
@@ -30,6 +33,7 @@ export default function LatestArrivals({
               <ProductCard
                 image={getStrapiMediaUrl(product.fotos?.[0]?.url) || ""}
                 title={product.nombre || "PRODUCT_NAME"}
+                brand={product.marca || "BRAND_NAME"}
                 price={`$${product.precio?.toLocaleString() || "00.00"}`}
                 tag={
                   index === 0

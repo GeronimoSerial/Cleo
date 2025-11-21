@@ -54,6 +54,7 @@ export async function getAllProducts(): Promise<Product[]> {
 
 // Obtener un producto por slug
 export async function getProductBySlug(slug: string): Promise<Product | null> {
+  "use cache";
   const query = qs.stringify(
     {
       filters: {

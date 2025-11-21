@@ -8,6 +8,7 @@ export interface Product {
   tags?: string[];
   slug: string;
   season?: string;
+  marca?: string;
   fotos?: {
     id: number;
     url: string;

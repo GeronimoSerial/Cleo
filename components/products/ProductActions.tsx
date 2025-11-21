@@ -1,5 +1,4 @@
 "use client"; // <--- ¡Esto es lo más importante!
-
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";

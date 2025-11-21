@@ -6,11 +6,13 @@ export default function ProductCard({
   title,
   price,
   tag,
+  brand,
 }: {
   image: any;
   title: string;
   price: string;
   tag: string;
+  brand: string;
 }) {
   return (
     <div className="group relative bg-black aspect-3/4 overflow-hidden border-r border-white/10 last:border-r-0">
@@ -40,9 +42,7 @@ export default function ProductCard({
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-black to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
         <div className="flex justify-between items-end">
           <div>
-            <h3 className="font-mono text-sm text-neutral-400 mb-1">
-              04_COLLECTION
-            </h3>
+            <h3 className="font-mono text-sm text-neutral-400 mb-1">{brand}</h3>
             <p className="font-display text-xl text-white leading-none">
               {title}
             </p>

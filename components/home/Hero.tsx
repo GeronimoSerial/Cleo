@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import BackgroundMedia from "../ui/bg-media";
 import { Button } from "../ui/button";
 
@@ -14,8 +13,6 @@ export default function Hero() {
     <section className="relative w-full h-screen bg-nexus-black overflow-hidden">
       {/* Aesthetic Statue Background */}
       <div className="absolute inset-0 w-full h-full">
-        {/* Using a specific Unsplash image of a Greek bust for that Vaporwave/Aesthetic look */}
-
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-t from-nexus-black via-transparent to-nexus-black/60" />
 
@@ -47,7 +44,6 @@ export default function Hero() {
             </h2>
           </div>
 
-          {/* Main Typography with Overlapping "Aesthetic" positioning */}
           <div className="relative">
             <div className="overflow-hidden relative z-10">
               <h1
