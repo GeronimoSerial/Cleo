@@ -17,7 +17,6 @@ interface ProductPageProps {
 }
 
 export async function generateStaticParams() {
-  // Implement logic to generate static params if needed
   try {
     const res = await getAllProducts();
     return res.map((product) => ({

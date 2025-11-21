@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProductCard from "../shared/ProductCard";
+import ProductCard from "../products/ProductCard";
 import {
   getLatestProducts,
   getLatestSeason,
