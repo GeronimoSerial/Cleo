@@ -10,7 +10,7 @@ export default function LatestArrivals() {
       <div className="flex justify-between items-end mb-16">
         <h2 className="text-4xl md:text-6xl font-display">LATEST ARRIVALS</h2>
         <span className="font-mono text-sm text-muted-foreground hidden md:block">
-          SEASON 04 // CONCRETE JUNGLE
+          SEASON 04 // 90'S REVIVAL
         </span>
       </div>
 

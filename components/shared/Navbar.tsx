@@ -3,10 +3,18 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Close menu whenever the route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -66,13 +74,38 @@ export default function Navbar() {
           <X className="h-8 w-8" />
         </Button>
         <div className="flex flex-col gap-8 text-center">
-          {["Collections", "Archive", "Manifesto", "Account"].map((item) => (
+          {/* Define menu items with id for direct smooth scrolling (no anchor navigation) */}
+          {[
+            { label: "Collections", id: "latest-arrivals" },
+            { label: "Manifiesto", id: "manifesto" },
+            { label: "Drop", id: "drop" },
+          ].map((item) => (
             <a
-              key={item}
-              href="#"
+              key={item.label}
+              href={`/#${item.id}`}
+              onClick={async (e) => {
+                e.preventDefault();
+                setIsMenuOpen(false);
+
+                // Try to scroll to the section if it's on the current page
+                const el = document.getElementById(item.id);
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  return;
+                }
+
+                // If the section isn't found on the current DOM (different page), navigate to home + hash
+                // This keeps behavior simple: it's not a link, it's a scroll to an id when present.
+                await router.push(`/#${item.id}`);
+                // After navigation, attempt to smooth scroll. Small delay to give the page a chance to render.
+                setTimeout(() => {
+                  const el2 = document.getElementById(item.id);
+                  if (el2) el2.scrollIntoView({ behavior: "smooth" });
+                }, 150);
+              }}
               className="font-display text-4xl md:text-6xl uppercase hover:text-stroke hover:text-transparent transition-all duration-300"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>

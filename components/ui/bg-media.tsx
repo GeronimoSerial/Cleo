@@ -115,7 +115,7 @@ export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({
       {type === "video" && shouldLoad && (
         <button
           aria-label={isPlaying ? "Pause video" : "Play video"}
-          className="absolute bottom-4 right-4 z-50 px-4 py-2 bg-gray-900/20 text-white hover:bg-gray-700"
+          className="absolute bottom-4 right-4 z-50 px-2 py-1 text-xs bg-gray-900/20 text-white hover:bg-gray-700"
           onClick={toggleMediaPlay}
         >
           {isPlaying ? "Pause" : "Play"}

@@ -72,7 +72,7 @@ export default function ProductPage() {
                   variant="outline"
                   className="rounded-none border-white/20 text-neutral-400 font-mono text-xs uppercase tracking-widest"
                 >
-                  Season 04 // Concrete Jungle
+                  Season 04 // 90s Revival
                 </Badge>
                 <div className="flex items-center gap-1 text-yellow-500/80">
                   <Star className="h-3 w-3 fill-current" />

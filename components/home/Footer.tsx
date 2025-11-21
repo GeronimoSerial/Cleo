@@ -4,7 +4,10 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
         <div className="col-span-1 md:col-span-2">
           <h4 className="font-display text-5xl mb-8">
-            UNÍTE A LA CULTURA <strong>STREET ROCK</strong>{" "}
+            UNÍTE A LA CULTURA{" "}
+            <strong>
+              <span className="italic ">STREET ROCK</span>
+            </strong>{" "}
           </h4>
           <div className="flex gap-0 border-b border-black pb-2">
             <input

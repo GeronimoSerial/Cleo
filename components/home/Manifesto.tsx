@@ -3,7 +3,10 @@ import { Button } from "../ui/button";
 
 export default function Manifesto() {
   return (
-    <section className="relative py-32 px-4 md:px-12 flex flex-col md:flex-row gap-12 items-start">
+    <section
+      id="manifesto"
+      className="relative py-32 px-4 md:px-12 flex flex-col md:flex-row gap-12 items-start"
+    >
       <div className="w-full md:w-1/3 sticky top-24 z-10">
         <span className="font-mono text-xs border border-white/20 px-2 py-1">
           MANIFIESTO

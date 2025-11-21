@@ -14,7 +14,10 @@ const DropZone = () => {
   // Keep the server component static; use a client-side `CountdownTimer` for live updates
 
   return (
-    <section className="w-full bg-nexus-gray py-24 px-6 relative overflow-hidden border-t border-white/10">
+    <section
+      id="drop"
+      className="w-full bg-nexus-gray py-24 px-6 relative overflow-hidden border-t border-white/10"
+    >
       {/* Marble Texture Background */}
       <div
         className="absolute inset-0 opacity-20 mix-blend-overlay"
